@@ -3,6 +3,7 @@ package riotapi.staticdata.champion;
 import java.util.ArrayList;
 
 import riotapi.staticdata.image.ImageDto;
+import riotapi.staticdata.misc.LevelTipDto;
 
 public class ChampionSpellDto {
     private ArrayList<ImageDto> altimages;

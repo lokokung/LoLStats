@@ -1,4 +1,4 @@
-package riotapi.staticdata.champion;
+package riotapi.staticdata.misc;
 
 import java.util.ArrayList;
 
