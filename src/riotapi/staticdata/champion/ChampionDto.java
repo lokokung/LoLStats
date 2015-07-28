@@ -2,6 +2,8 @@ package riotapi.staticdata.champion;
 
 import java.util.ArrayList;
 
+import riotapi.staticdata.image.ImageDto;
+
 public class ChampionDto {
     private ArrayList<String> allytips;
     private String blurb;

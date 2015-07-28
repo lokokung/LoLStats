@@ -1,5 +1,7 @@
 package riotapi.staticdata.champion;
 
+import riotapi.staticdata.image.ImageDto;
+
 public class PassiveDto {
     private String description;
     private ImageDto image;

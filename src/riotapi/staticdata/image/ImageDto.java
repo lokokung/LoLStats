@@ -1,4 +1,4 @@
-package riotapi.staticdata.champion;
+package riotapi.staticdata.image;
 
 public class ImageDto {
     private String full;
