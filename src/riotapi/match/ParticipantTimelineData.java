@@ -1,4 +1,4 @@
-package riotapi.matchhistory;
+package riotapi.match;
 
 public class ParticipantTimelineData {
     private double tenToTwenty;

@@ -1,4 +1,4 @@
-package riotapi.matchhistory;
+package riotapi.match;
 
 import java.util.ArrayList;
 
