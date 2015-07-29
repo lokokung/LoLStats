@@ -1,12 +1,12 @@
 package riotapi.exceptions;
 
-public class UnathorizedException extends Exception{
+public class UnathorizedException extends Exception {
 
-    public UnathorizedException(){
+    public UnathorizedException() {
         super();
     }
 
-    public UnathorizedException(String message){
+    public UnathorizedException(String message) {
         super(message);
     }
 }

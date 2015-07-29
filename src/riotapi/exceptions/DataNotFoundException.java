@@ -1,12 +1,12 @@
 package riotapi.exceptions;
 
-public class DataNotFoundException extends Exception{
+public class DataNotFoundException extends Exception {
 
-    public DataNotFoundException(){
+    public DataNotFoundException() {
         super();
     }
 
-    public DataNotFoundException(String message){
+    public DataNotFoundException(String message) {
         super(message);
     }
 }

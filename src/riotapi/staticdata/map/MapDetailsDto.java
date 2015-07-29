@@ -10,28 +10,35 @@ public class MapDetailsDto {
     private String mapName;
     private ArrayList<Long> unpurchasableItemList;
 
-    public ImageDto get_image(){
+    public ImageDto get_image() {
         return image;
     }
-    public void set_image(ImageDto image){
+
+    public void set_image(ImageDto image) {
         this.image = image;
     }
-    public long get_mapId(){
+
+    public long get_mapId() {
         return mapId;
     }
-    public void set_mapId(long mapId){
+
+    public void set_mapId(long mapId) {
         this.mapId = mapId;
     }
-    public String get_mapName(){
+
+    public String get_mapName() {
         return mapName;
     }
-    public void set_mapName(String mapName){
+
+    public void set_mapName(String mapName) {
         this.mapName = mapName;
     }
-    public ArrayList<Long> get_unpurchasableItemList(){
+
+    public ArrayList<Long> get_unpurchasableItemList() {
         return unpurchasableItemList;
     }
-    public void set_unpurchasableItemList(ArrayList<Long> unpurchasableItemList){
+
+    public void set_unpurchasableItemList(ArrayList<Long> unpurchasableItemList) {
         this.unpurchasableItemList = unpurchasableItemList;
     }
 }

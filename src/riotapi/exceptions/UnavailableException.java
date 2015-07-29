@@ -1,12 +1,12 @@
 package riotapi.exceptions;
 
-public class UnavailableException extends Exception{
+public class UnavailableException extends Exception {
 
-    public UnavailableException(){
+    public UnavailableException() {
         super();
     }
 
-    public UnavailableException(String message){
+    public UnavailableException(String message) {
         super(message);
     }
 }

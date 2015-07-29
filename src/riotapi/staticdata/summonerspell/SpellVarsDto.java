@@ -9,34 +9,43 @@ public class SpellVarsDto {
     private String link;
     private String ranksWith;
 
-    public ArrayList<Double> get_coeff(){
+    public ArrayList<Double> get_coeff() {
         return coeff;
     }
-    public void set_coeff(ArrayList<Double> coeff){
+
+    public void set_coeff(ArrayList<Double> coeff) {
         this.coeff = coeff;
     }
-    public String get_dyn(){
+
+    public String get_dyn() {
         return dyn;
     }
-    public void set_dyn(String dyn){
+
+    public void set_dyn(String dyn) {
         this.dyn = dyn;
     }
-    public String get_key(){
+
+    public String get_key() {
         return key;
     }
-    public void set_key(String key){
+
+    public void set_key(String key) {
         this.key = key;
     }
-    public String get_link(){
+
+    public String get_link() {
         return link;
     }
-    public void set_link(String link){
+
+    public void set_link(String link) {
         this.link = link;
     }
-    public String get_ranksWith(){
+
+    public String get_ranksWith() {
         return ranksWith;
     }
-    public void set_ranksWith(String ranksWith){
+
+    public void set_ranksWith(String ranksWith) {
         this.ranksWith = ranksWith;
     }
 }

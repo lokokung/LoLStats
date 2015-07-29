@@ -80,472 +80,630 @@ public class RawStatsDto {
     private int wardPlaced;
     private boolean win;
 
-    public int get_assists(){
+    public int get_assists() {
         return assists;
     }
-    public void set_assists(int assists){
+
+    public void set_assists(int assists) {
         this.assists = assists;
     }
-    public int get_barracksKilled(){
+
+    public int get_barracksKilled() {
         return barracksKilled;
     }
-    public void set_barracksKilled(int barracksKilled){
+
+    public void set_barracksKilled(int barracksKilled) {
         this.barracksKilled = barracksKilled;
     }
-    public int get_championsKilled(){
+
+    public int get_championsKilled() {
         return championsKilled;
     }
-    public void set_championsKilled(int championsKilled){
+
+    public void set_championsKilled(int championsKilled) {
         this.championsKilled = championsKilled;
     }
-    public int get_combatPlayerScore(){
+
+    public int get_combatPlayerScore() {
         return combatPlayerScore;
     }
-    public void set_combatPlayerScore(int combatPlayerScore){
+
+    public void set_combatPlayerScore(int combatPlayerScore) {
         this.combatPlayerScore = combatPlayerScore;
     }
-    public int get_consumablesPurchased(){
+
+    public int get_consumablesPurchased() {
         return consumablesPurchased;
     }
-    public void set_consumablesPurchased(int consumablesPurchased){
+
+    public void set_consumablesPurchased(int consumablesPurchased) {
         this.consumablesPurchased = consumablesPurchased;
     }
-    public int get_damageDealtPlayer(){
+
+    public int get_damageDealtPlayer() {
         return damageDealtPlayer;
     }
-    public void set_damageDealtPlayer(int damageDealtPlayer){
+
+    public void set_damageDealtPlayer(int damageDealtPlayer) {
         this.damageDealtPlayer = damageDealtPlayer;
     }
-    public int get_doubleKills(){
+
+    public int get_doubleKills() {
         return doubleKills;
     }
-    public void set_doubleKills(int doubleKills){
+
+    public void set_doubleKills(int doubleKills) {
         this.doubleKills = doubleKills;
     }
-    public int get_firstBlood(){
+
+    public int get_firstBlood() {
         return firstBlood;
     }
-    public void set_firstBlood(int firstBlood){
+
+    public void set_firstBlood(int firstBlood) {
         this.firstBlood = firstBlood;
     }
-    public int get_gold(){
+
+    public int get_gold() {
         return gold;
     }
-    public void set_gold(int gold){
+
+    public void set_gold(int gold) {
         this.gold = gold;
     }
-    public int get_goldEarned(){
+
+    public int get_goldEarned() {
         return goldEarned;
     }
-    public void set_goldEarned(int goldEarned){
+
+    public void set_goldEarned(int goldEarned) {
         this.goldEarned = goldEarned;
     }
-    public int get_goldSpent(){
+
+    public int get_goldSpent() {
         return goldSpent;
     }
-    public void set_goldSpent(int goldSpent){
+
+    public void set_goldSpent(int goldSpent) {
         this.goldSpent = goldSpent;
     }
-    public int get_item0(){
+
+    public int get_item0() {
         return item0;
     }
-    public void set_item0(int item0){
+
+    public void set_item0(int item0) {
         this.item0 = item0;
     }
-    public int get_item1(){
+
+    public int get_item1() {
         return item1;
     }
-    public void set_item1(int item1){
+
+    public void set_item1(int item1) {
         this.item1 = item1;
     }
-    public int get_item2(){
+
+    public int get_item2() {
         return item2;
     }
-    public void set_item2(int item2){
+
+    public void set_item2(int item2) {
         this.item2 = item2;
     }
-    public int get_item3(){
+
+    public int get_item3() {
         return item3;
     }
-    public void set_item3(int item3){
+
+    public void set_item3(int item3) {
         this.item3 = item3;
     }
-    public int get_item4(){
+
+    public int get_item4() {
         return item4;
     }
-    public void set_item4(int item4){
+
+    public void set_item4(int item4) {
         this.item4 = item4;
     }
-    public int get_item5(){
+
+    public int get_item5() {
         return item5;
     }
-    public void set_item5(int item5){
+
+    public void set_item5(int item5) {
         this.item5 = item5;
     }
-    public int get_item6(){
+
+    public int get_item6() {
         return item6;
     }
-    public void set_item6(int item6){
+
+    public void set_item6(int item6) {
         this.item6 = item6;
     }
-    public int get_itemsPurchased(){
+
+    public int get_itemsPurchased() {
         return itemsPurchased;
     }
-    public void set_itemsPurchased(int itemsPurchased){
+
+    public void set_itemsPurchased(int itemsPurchased) {
         this.itemsPurchased = itemsPurchased;
     }
-    public int get_killingSprees(){
+
+    public int get_killingSprees() {
         return killingSprees;
     }
-    public void set_killingSprees(int killingSprees){
+
+    public void set_killingSprees(int killingSprees) {
         this.killingSprees = killingSprees;
     }
-    public int get_largestCriticalStrike(){
+
+    public int get_largestCriticalStrike() {
         return largestCriticalStrike;
     }
-    public void set_largestCriticalStrike(int largestCriticalStrike){
+
+    public void set_largestCriticalStrike(int largestCriticalStrike) {
         this.largestCriticalStrike = largestCriticalStrike;
     }
-    public int get_largestKillingSpree(){
+
+    public int get_largestKillingSpree() {
         return largestKillingSpree;
     }
-    public void set_largestKillingSpree(int largestKillingSpree){
+
+    public void set_largestKillingSpree(int largestKillingSpree) {
         this.largestKillingSpree = largestKillingSpree;
     }
-    public int get_largestMultiKill(){
+
+    public int get_largestMultiKill() {
         return largestMultiKill;
     }
-    public void set_largestMultiKill(int largestMultiKill){
+
+    public void set_largestMultiKill(int largestMultiKill) {
         this.largestMultiKill = largestMultiKill;
     }
-    public int get_legendaryItemsCreated(){
+
+    public int get_legendaryItemsCreated() {
         return legendaryItemsCreated;
     }
-    public void set_legendaryItemsCreated(int legendaryItemsCreated){
+
+    public void set_legendaryItemsCreated(int legendaryItemsCreated) {
         this.legendaryItemsCreated = legendaryItemsCreated;
     }
-    public int get_level(){
+
+    public int get_level() {
         return level;
     }
-    public void set_level(int level){
+
+    public void set_level(int level) {
         this.level = level;
     }
-    public int get_magicDamageDealtPlayer(){
+
+    public int get_magicDamageDealtPlayer() {
         return magicDamageDealtPlayer;
     }
-    public void set_magicDamageDealtPlayer(int magicDamageDealtPlayer){
+
+    public void set_magicDamageDealtPlayer(int magicDamageDealtPlayer) {
         this.magicDamageDealtPlayer = magicDamageDealtPlayer;
     }
-    public int get_magicDamageDealtToChampions(){
+
+    public int get_magicDamageDealtToChampions() {
         return magicDamageDealtToChampions;
     }
-    public void set_magicDamageDealtToChampions(int magicDamageDealtToChampions){
+
+    public void set_magicDamageDealtToChampions(int magicDamageDealtToChampions) {
         this.magicDamageDealtToChampions = magicDamageDealtToChampions;
     }
-    public int get_magicDamageTaken(){
+
+    public int get_magicDamageTaken() {
         return magicDamageTaken;
     }
-    public void set_magicDamageTaken(int magicDamageTaken){
+
+    public void set_magicDamageTaken(int magicDamageTaken) {
         this.magicDamageTaken = magicDamageTaken;
     }
-    public int get_minionsDenied(){
+
+    public int get_minionsDenied() {
         return minionsDenied;
     }
-    public void set_minionsDenied(int minionsDenied){
+
+    public void set_minionsDenied(int minionsDenied) {
         this.minionsDenied = minionsDenied;
     }
-    public int get_minionsKilled(){
+
+    public int get_minionsKilled() {
         return minionsKilled;
     }
-    public void set_minionsKilled(int minionsKilled){
+
+    public void set_minionsKilled(int minionsKilled) {
         this.minionsKilled = minionsKilled;
     }
-    public int get_neutralMinionsKilled(){
+
+    public int get_neutralMinionsKilled() {
         return neutralMinionsKilled;
     }
-    public void set_neutralMinionsKilled(int neutralMinionsKilled){
+
+    public void set_neutralMinionsKilled(int neutralMinionsKilled) {
         this.neutralMinionsKilled = neutralMinionsKilled;
     }
-    public int get_neutralMinionsKilledEnemyJungle(){
+
+    public int get_neutralMinionsKilledEnemyJungle() {
         return neutralMinionsKilledEnemyJungle;
     }
-    public void set_neutralMinionsKilledEnemyJungle(int neutralMinionsKilledEnemyJungle){
+
+    public void set_neutralMinionsKilledEnemyJungle(
+            int neutralMinionsKilledEnemyJungle) {
         this.neutralMinionsKilledEnemyJungle = neutralMinionsKilledEnemyJungle;
     }
-    public int get_neutralMinionsKilledYourJungle(){
+
+    public int get_neutralMinionsKilledYourJungle() {
         return neutralMinionsKilledYourJungle;
     }
-    public void set_neutralMinionsKilledYourJungle(int neutralMinionsKilledYourJungle){
+
+    public void set_neutralMinionsKilledYourJungle(
+            int neutralMinionsKilledYourJungle) {
         this.neutralMinionsKilledYourJungle = neutralMinionsKilledYourJungle;
     }
-    public boolean get_nexusKilled(){
+
+    public boolean get_nexusKilled() {
         return nexusKilled;
     }
-    public void set_nexusKilled(boolean nexusKilled){
+
+    public void set_nexusKilled(boolean nexusKilled) {
         this.nexusKilled = nexusKilled;
     }
-    public int get_nodeCapture(){
+
+    public int get_nodeCapture() {
         return nodeCapture;
     }
-    public void set_nodeCapture(int nodeCapture){
+
+    public void set_nodeCapture(int nodeCapture) {
         this.nodeCapture = nodeCapture;
     }
-    public int get_nodeCaptureAssist(){
+
+    public int get_nodeCaptureAssist() {
         return nodeCaptureAssist;
     }
-    public void set_nodeCaptureAssist(int nodeCaptureAssist){
+
+    public void set_nodeCaptureAssist(int nodeCaptureAssist) {
         this.nodeCaptureAssist = nodeCaptureAssist;
     }
-    public int get_nodeNeutralize(){
+
+    public int get_nodeNeutralize() {
         return nodeNeutralize;
     }
-    public void set_nodeNeutralize(int nodeNeutralize){
+
+    public void set_nodeNeutralize(int nodeNeutralize) {
         this.nodeNeutralize = nodeNeutralize;
     }
-    public int get_nodeNeutralizeAssist(){
+
+    public int get_nodeNeutralizeAssist() {
         return nodeNeutralizeAssist;
     }
-    public void set_nodeNeutralizeAssist(int nodeNeutralizeAssist){
+
+    public void set_nodeNeutralizeAssist(int nodeNeutralizeAssist) {
         this.nodeNeutralizeAssist = nodeNeutralizeAssist;
     }
-    public int get_numDeaths(){
+
+    public int get_numDeaths() {
         return numDeaths;
     }
-    public void set_numDeaths(int numDeaths){
+
+    public void set_numDeaths(int numDeaths) {
         this.numDeaths = numDeaths;
     }
-    public int get_numItemsBought(){
+
+    public int get_numItemsBought() {
         return numItemsBought;
     }
-    public void set_numItemsBought(int numItemsBought){
+
+    public void set_numItemsBought(int numItemsBought) {
         this.numItemsBought = numItemsBought;
     }
-    public int get_objectivePlayerScore(){
+
+    public int get_objectivePlayerScore() {
         return objectivePlayerScore;
     }
-    public void set_objectivePlayerScore(int objectivePlayerScore){
+
+    public void set_objectivePlayerScore(int objectivePlayerScore) {
         this.objectivePlayerScore = objectivePlayerScore;
     }
-    public int get_pentaKills(){
+
+    public int get_pentaKills() {
         return pentaKills;
     }
-    public void set_pentaKills(int pentaKills){
+
+    public void set_pentaKills(int pentaKills) {
         this.pentaKills = pentaKills;
     }
-    public int get_physicalDamageDealtPlayer(){
+
+    public int get_physicalDamageDealtPlayer() {
         return physicalDamageDealtPlayer;
     }
-    public void set_physicalDamageDealtPlayer(int physicalDamageDealtPlayer){
+
+    public void set_physicalDamageDealtPlayer(int physicalDamageDealtPlayer) {
         this.physicalDamageDealtPlayer = physicalDamageDealtPlayer;
     }
-    public int get_physicalDamageDealtToChampions(){
+
+    public int get_physicalDamageDealtToChampions() {
         return physicalDamageDealtToChampions;
     }
-    public void set_physicalDamageDealtToChampions(int physicalDamageDealtToChampions){
+
+    public void set_physicalDamageDealtToChampions(
+            int physicalDamageDealtToChampions) {
         this.physicalDamageDealtToChampions = physicalDamageDealtToChampions;
     }
-    public int get_physicalDamageTaken(){
+
+    public int get_physicalDamageTaken() {
         return physicalDamageTaken;
     }
-    public void set_physicalDamageTaken(int physicalDamageTaken){
+
+    public void set_physicalDamageTaken(int physicalDamageTaken) {
         this.physicalDamageTaken = physicalDamageTaken;
     }
-    public int get_playerPosition(){
+
+    public int get_playerPosition() {
         return playerPosition;
     }
-    public void set_playerPosition(int playerPosition){
+
+    public void set_playerPosition(int playerPosition) {
         this.playerPosition = playerPosition;
     }
-    public int get_playerRole(){
+
+    public int get_playerRole() {
         return playerRole;
     }
-    public void set_playerRole(int playerRole){
+
+    public void set_playerRole(int playerRole) {
         this.playerRole = playerRole;
     }
-    public int get_quadraKills(){
+
+    public int get_quadraKills() {
         return quadraKills;
     }
-    public void set_quadraKills(int quadraKills){
+
+    public void set_quadraKills(int quadraKills) {
         this.quadraKills = quadraKills;
     }
-    public int get_sightWardsBought(){
+
+    public int get_sightWardsBought() {
         return sightWardsBought;
     }
-    public void set_sightWardsBought(int sightWardsBought){
+
+    public void set_sightWardsBought(int sightWardsBought) {
         this.sightWardsBought = sightWardsBought;
     }
-    public int get_spell1Cast(){
+
+    public int get_spell1Cast() {
         return spell1Cast;
     }
-    public void set_spell1Cast(int spell1Cast){
+
+    public void set_spell1Cast(int spell1Cast) {
         this.spell1Cast = spell1Cast;
     }
-    public int get_spell2Cast(){
+
+    public int get_spell2Cast() {
         return spell2Cast;
     }
-    public void set_spell2Cast(int spell2Cast){
+
+    public void set_spell2Cast(int spell2Cast) {
         this.spell2Cast = spell2Cast;
     }
-    public int get_spell3Cast(){
+
+    public int get_spell3Cast() {
         return spell3Cast;
     }
-    public void set_spell3Cast(int spell3Cast){
+
+    public void set_spell3Cast(int spell3Cast) {
         this.spell3Cast = spell3Cast;
     }
-    public int get_spell4Cast(){
+
+    public int get_spell4Cast() {
         return spell4Cast;
     }
-    public void set_spell4Cast(int spell4Cast){
+
+    public void set_spell4Cast(int spell4Cast) {
         this.spell4Cast = spell4Cast;
     }
-    public int get_summonSpell1Cast(){
+
+    public int get_summonSpell1Cast() {
         return summonSpell1Cast;
     }
-    public void set_summonSpell1Cast(int summonSpell1Cast){
+
+    public void set_summonSpell1Cast(int summonSpell1Cast) {
         this.summonSpell1Cast = summonSpell1Cast;
     }
-    public int get_summonSpell2Cast(){
+
+    public int get_summonSpell2Cast() {
         return summonSpell2Cast;
     }
-    public void set_summonSpell2Cast(int summonSpell2Cast){
+
+    public void set_summonSpell2Cast(int summonSpell2Cast) {
         this.summonSpell2Cast = summonSpell2Cast;
     }
-    public int get_superMonsterKilled(){
+
+    public int get_superMonsterKilled() {
         return superMonsterKilled;
     }
-    public void set_superMonsterKilled(int superMonsterKilled){
+
+    public void set_superMonsterKilled(int superMonsterKilled) {
         this.superMonsterKilled = superMonsterKilled;
     }
-    public int get_team(){
+
+    public int get_team() {
         return team;
     }
-    public void set_team(int team){
+
+    public void set_team(int team) {
         this.team = team;
     }
-    public int get_teamObjective(){
+
+    public int get_teamObjective() {
         return teamObjective;
     }
-    public void set_teamObjective(int teamObjective){
+
+    public void set_teamObjective(int teamObjective) {
         this.teamObjective = teamObjective;
     }
-    public int get_timePlayed(){
+
+    public int get_timePlayed() {
         return timePlayed;
     }
-    public void set_timePlayed(int timePlayed){
+
+    public void set_timePlayed(int timePlayed) {
         this.timePlayed = timePlayed;
     }
-    public int get_totalDamageDealt(){
+
+    public int get_totalDamageDealt() {
         return totalDamageDealt;
     }
-    public void set_totalDamageDealt(int totalDamageDealt){
+
+    public void set_totalDamageDealt(int totalDamageDealt) {
         this.totalDamageDealt = totalDamageDealt;
     }
-    public int get_totalDamageDealtToChampions(){
+
+    public int get_totalDamageDealtToChampions() {
         return totalDamageDealtToChampions;
     }
-    public void set_totalDamageDealtToChampions(int totalDamageDealtToChampions){
+
+    public void set_totalDamageDealtToChampions(int totalDamageDealtToChampions) {
         this.totalDamageDealtToChampions = totalDamageDealtToChampions;
     }
-    public int get_totalDamageTaken(){
+
+    public int get_totalDamageTaken() {
         return totalDamageTaken;
     }
-    public void set_totalDamageTaken(int totalDamageTaken){
+
+    public void set_totalDamageTaken(int totalDamageTaken) {
         this.totalDamageTaken = totalDamageTaken;
     }
-    public int get_totalHeal(){
+
+    public int get_totalHeal() {
         return totalHeal;
     }
-    public void set_totalHeal(int totalHeal){
+
+    public void set_totalHeal(int totalHeal) {
         this.totalHeal = totalHeal;
     }
-    public int get_totalPlayerScore(){
+
+    public int get_totalPlayerScore() {
         return totalPlayerScore;
     }
-    public void set_totalPlayerScore(int totalPlayerScore){
+
+    public void set_totalPlayerScore(int totalPlayerScore) {
         this.totalPlayerScore = totalPlayerScore;
     }
-    public int get_totalScoreRank(){
+
+    public int get_totalScoreRank() {
         return totalScoreRank;
     }
-    public void set_totalScoreRank(int totalScoreRank){
+
+    public void set_totalScoreRank(int totalScoreRank) {
         this.totalScoreRank = totalScoreRank;
     }
-    public int get_totalTimeCrowdControlDealt(){
+
+    public int get_totalTimeCrowdControlDealt() {
         return totalTimeCrowdControlDealt;
     }
-    public void set_totalTimeCrowdControlDealt(int totalTimeCrowdControlDealt){
+
+    public void set_totalTimeCrowdControlDealt(int totalTimeCrowdControlDealt) {
         this.totalTimeCrowdControlDealt = totalTimeCrowdControlDealt;
     }
-    public int get_totalUnitsHealed(){
+
+    public int get_totalUnitsHealed() {
         return totalUnitsHealed;
     }
-    public void set_totalUnitsHealed(int totalUnitsHealed){
+
+    public void set_totalUnitsHealed(int totalUnitsHealed) {
         this.totalUnitsHealed = totalUnitsHealed;
     }
-    public int get_tripleKills(){
+
+    public int get_tripleKills() {
         return tripleKills;
     }
-    public void set_tripleKills(int tripleKills){
+
+    public void set_tripleKills(int tripleKills) {
         this.tripleKills = tripleKills;
     }
-    public int get_trueDamageDealtPlayer(){
+
+    public int get_trueDamageDealtPlayer() {
         return trueDamageDealtPlayer;
     }
-    public void set_trueDamageDealtPlayer(int trueDamageDealtPlayer){
+
+    public void set_trueDamageDealtPlayer(int trueDamageDealtPlayer) {
         this.trueDamageDealtPlayer = trueDamageDealtPlayer;
     }
-    public int get_trueDamageDealtToChampions(){
+
+    public int get_trueDamageDealtToChampions() {
         return trueDamageDealtToChampions;
     }
-    public void set_trueDamageDealtToChampions(int trueDamageDealtToChampions){
+
+    public void set_trueDamageDealtToChampions(int trueDamageDealtToChampions) {
         this.trueDamageDealtToChampions = trueDamageDealtToChampions;
     }
-    public int get_trueDamageTaken(){
+
+    public int get_trueDamageTaken() {
         return trueDamageTaken;
     }
-    public void set_trueDamageTaken(int trueDamageTaken){
+
+    public void set_trueDamageTaken(int trueDamageTaken) {
         this.trueDamageTaken = trueDamageTaken;
     }
-    public int get_turretsKilled(){
+
+    public int get_turretsKilled() {
         return turretsKilled;
     }
-    public void set_turretsKilled(int turretsKilled){
+
+    public void set_turretsKilled(int turretsKilled) {
         this.turretsKilled = turretsKilled;
     }
-    public int get_unrealKills(){
+
+    public int get_unrealKills() {
         return unrealKills;
     }
-    public void set_unrealKills(int unrealKills){
+
+    public void set_unrealKills(int unrealKills) {
         this.unrealKills = unrealKills;
     }
-    public int get_victoryPointTotal(){
+
+    public int get_victoryPointTotal() {
         return victoryPointTotal;
     }
-    public void set_victoryPointTotal(int victoryPointTotal){
+
+    public void set_victoryPointTotal(int victoryPointTotal) {
         this.victoryPointTotal = victoryPointTotal;
     }
-    public int get_visionWardsBought(){
+
+    public int get_visionWardsBought() {
         return visionWardsBought;
     }
-    public void set_visionWardsBought(int visionWardsBought){
+
+    public void set_visionWardsBought(int visionWardsBought) {
         this.visionWardsBought = visionWardsBought;
     }
-    public int get_wardKilled(){
+
+    public int get_wardKilled() {
         return wardKilled;
     }
-    public void set_wardKilled(int wardKilled){
+
+    public void set_wardKilled(int wardKilled) {
         this.wardKilled = wardKilled;
     }
-    public int get_wardPlaced(){
+
+    public int get_wardPlaced() {
         return wardPlaced;
     }
-    public void set_wardPlaced(int wardPlaced){
+
+    public void set_wardPlaced(int wardPlaced) {
         this.wardPlaced = wardPlaced;
     }
-    public boolean get_win(){
+
+    public boolean get_win() {
         return win;
     }
-    public void set_win(boolean win){
+
+    public void set_win(boolean win) {
         this.win = win;
     }
 }

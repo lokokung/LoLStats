@@ -1,12 +1,12 @@
 package riotapi.exceptions;
 
-public class InternalServerException extends Exception{
+public class InternalServerException extends Exception {
 
-    public InternalServerException(){
+    public InternalServerException() {
         super();
     }
 
-    public InternalServerException(String message){
+    public InternalServerException(String message) {
         super(message);
     }
 }

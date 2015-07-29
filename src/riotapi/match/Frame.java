@@ -8,22 +8,28 @@ public class Frame {
     private HashMap<String, ParticipantFrame> participantFrames;
     private long timestamp;
 
-    public ArrayList<Event> get_events(){
+    public ArrayList<Event> get_events() {
         return events;
     }
-    public void set_events(ArrayList<Event> events){
+
+    public void set_events(ArrayList<Event> events) {
         this.events = events;
     }
-    public HashMap<String, ParticipantFrame> get_participantFrames(){
+
+    public HashMap<String, ParticipantFrame> get_participantFrames() {
         return participantFrames;
     }
-    public void set_participantFrames(HashMap<String, ParticipantFrame> participantFrames){
+
+    public void set_participantFrames(
+            HashMap<String, ParticipantFrame> participantFrames) {
         this.participantFrames = participantFrames;
     }
-    public long get_timestamp(){
+
+    public long get_timestamp() {
         return timestamp;
     }
-    public void set_timestamp(long timestamp){
+
+    public void set_timestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 }

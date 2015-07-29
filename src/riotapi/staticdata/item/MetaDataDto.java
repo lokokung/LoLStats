@@ -5,22 +5,27 @@ public class MetaDataDto {
     private String tier;
     private String type;
 
-    public boolean get_isRune(){
+    public boolean get_isRune() {
         return isRune;
     }
-    public void set_isRune(boolean isRune){
+
+    public void set_isRune(boolean isRune) {
         this.isRune = isRune;
     }
-    public String get_tier(){
+
+    public String get_tier() {
         return tier;
     }
-    public void set_tier(String tier){
+
+    public void set_tier(String tier) {
         this.tier = tier;
     }
-    public String get_type(){
+
+    public String get_type() {
         return type;
     }
-    public void set_type(String type){
+
+    public void set_type(String type) {
         this.type = type;
     }
 }

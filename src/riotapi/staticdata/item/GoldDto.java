@@ -6,28 +6,35 @@ public class GoldDto {
     private int sell;
     private int total;
 
-    public int get_base(){
+    public int get_base() {
         return base;
     }
-    public void set_base(int base){
+
+    public void set_base(int base) {
         this.base = base;
     }
-    public boolean get_purchasable(){
+
+    public boolean get_purchasable() {
         return purchasable;
     }
-    public void set_purchasable(boolean purchasable){
+
+    public void set_purchasable(boolean purchasable) {
         this.purchasable = purchasable;
     }
-    public int get_sell(){
+
+    public int get_sell() {
         return sell;
     }
-    public void set_sell(int sell){
+
+    public void set_sell(int sell) {
         this.sell = sell;
     }
-    public int get_total(){
+
+    public int get_total() {
         return total;
     }
-    public void set_total(int total){
+
+    public void set_total(int total) {
         this.total = total;
     }
 }

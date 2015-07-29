@@ -1,12 +1,12 @@
 package riotapi.exceptions;
 
-public class RateLimitException extends Exception{
+public class RateLimitException extends Exception {
 
-    public RateLimitException(){
+    public RateLimitException() {
         super();
     }
 
-    public RateLimitException(String message){
+    public RateLimitException(String message) {
         super(message);
     }
 }

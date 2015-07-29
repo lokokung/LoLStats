@@ -25,130 +25,172 @@ public class Event {
     private int victimId;
     private String wardType;
 
-    public String get_ascendedType(){
+    public String get_ascendedType() {
         return ascendedType;
     }
-    public void set_ascendedType(String ascendedType){
+
+    public void set_ascendedType(String ascendedType) {
         this.ascendedType = ascendedType;
     }
-    public ArrayList<Integer> get_assistingParticipantIds(){
+
+    public ArrayList<Integer> get_assistingParticipantIds() {
         return assistingParticipantIds;
     }
-    public void set_assistingParticipantIds(ArrayList<Integer> assistingParticipantIds){
+
+    public void set_assistingParticipantIds(
+            ArrayList<Integer> assistingParticipantIds) {
         this.assistingParticipantIds = assistingParticipantIds;
     }
-    public String get_buildingType(){
+
+    public String get_buildingType() {
         return buildingType;
     }
-    public void set_buildingType(String buildingType){
+
+    public void set_buildingType(String buildingType) {
         this.buildingType = buildingType;
     }
-    public int get_creatorId(){
+
+    public int get_creatorId() {
         return creatorId;
     }
-    public void set_creatorId(int creatorId){
+
+    public void set_creatorId(int creatorId) {
         this.creatorId = creatorId;
     }
-    public String get_eventType(){
+
+    public String get_eventType() {
         return eventType;
     }
-    public void set_eventType(String eventType){
+
+    public void set_eventType(String eventType) {
         this.eventType = eventType;
     }
-    public int get_itemAfter(){
+
+    public int get_itemAfter() {
         return itemAfter;
     }
-    public void set_itemAfter(int itemAfter){
+
+    public void set_itemAfter(int itemAfter) {
         this.itemAfter = itemAfter;
     }
-    public int get_itemBefore(){
+
+    public int get_itemBefore() {
         return itemBefore;
     }
-    public void set_itemBefore(int itemBefore){
+
+    public void set_itemBefore(int itemBefore) {
         this.itemBefore = itemBefore;
     }
-    public int get_itemId(){
+
+    public int get_itemId() {
         return itemId;
     }
-    public void set_itemId(int itemId){
+
+    public void set_itemId(int itemId) {
         this.itemId = itemId;
     }
-    public int get_killerId(){
+
+    public int get_killerId() {
         return killerId;
     }
-    public void set_killerId(int killerId){
+
+    public void set_killerId(int killerId) {
         this.killerId = killerId;
     }
-    public String get_laneType(){
+
+    public String get_laneType() {
         return laneType;
     }
-    public void set_laneType(String laneType){
+
+    public void set_laneType(String laneType) {
         this.laneType = laneType;
     }
-    public String get_levelUpType(){
+
+    public String get_levelUpType() {
         return levelUpType;
     }
-    public void set_levelUpType(String levelUpType){
+
+    public void set_levelUpType(String levelUpType) {
         this.levelUpType = levelUpType;
     }
-    public String get_monsterType(){
+
+    public String get_monsterType() {
         return monsterType;
     }
-    public void set_monsterType(String monsterType){
+
+    public void set_monsterType(String monsterType) {
         this.monsterType = monsterType;
     }
-    public int get_participantId(){
+
+    public int get_participantId() {
         return participantId;
     }
-    public void set_participantId(int participantId){
+
+    public void set_participantId(int participantId) {
         this.participantId = participantId;
     }
-    public String get_pointCaptured(){
+
+    public String get_pointCaptured() {
         return pointCaptured;
     }
-    public void set_pointCaptured(String pointCaptured){
+
+    public void set_pointCaptured(String pointCaptured) {
         this.pointCaptured = pointCaptured;
     }
-    public Position get_position(){
+
+    public Position get_position() {
         return position;
     }
-    public void set_position(Position position){
+
+    public void set_position(Position position) {
         this.position = position;
     }
-    public int get_skillSlot(){
+
+    public int get_skillSlot() {
         return skillSlot;
     }
-    public void set_skillSlot(int skillSlot){
+
+    public void set_skillSlot(int skillSlot) {
         this.skillSlot = skillSlot;
     }
-    public int get_teamId(){
+
+    public int get_teamId() {
         return teamId;
     }
-    public void set_teamId(int teamId){
+
+    public void set_teamId(int teamId) {
         this.teamId = teamId;
     }
-    public long get_timestamp(){
+
+    public long get_timestamp() {
         return timestamp;
     }
-    public void set_timestamp(long timestamp){
+
+    public void set_timestamp(long timestamp) {
         this.timestamp = timestamp;
     }
-    public String get_towerType(){
+
+    public String get_towerType() {
         return towerType;
     }
-    public void set_towerType(String towerType){
+
+    public void set_towerType(String towerType) {
         this.towerType = towerType;
     }
-    public int get_victimId(){
+
+    public int get_victimId() {
         return victimId;
     }
-    public void set_victimId(int victimId){
+
+    public void set_victimId(int victimId) {
         this.victimId = victimId;
     }
-    public String get_wardType(){
+
+    public String get_wardType() {
         return wardType;
     }
-    public void set_wardType(String wardType){
+
+    public void set_wardType(String wardType) {
         this.wardType = wardType;
     }
 }

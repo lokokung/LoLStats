@@ -19,94 +19,124 @@ public class MatchDetail {
     private ArrayList<Team> teams;
     private Timeline timeline;
 
-    public int get_mapId(){
+    public int get_mapId() {
         return mapId;
     }
-    public void set_mapId(int mapId){
+
+    public void set_mapId(int mapId) {
         this.mapId = mapId;
     }
-    public long get_matchCreation(){
+
+    public long get_matchCreation() {
         return matchCreation;
     }
-    public void set_matchCreation(long matchCreation){
+
+    public void set_matchCreation(long matchCreation) {
         this.matchCreation = matchCreation;
     }
-    public long get_matchDuration(){
+
+    public long get_matchDuration() {
         return matchDuration;
     }
-    public void set_matchDuration(long matchDuration){
+
+    public void set_matchDuration(long matchDuration) {
         this.matchDuration = matchDuration;
     }
-    public long get_matchId(){
+
+    public long get_matchId() {
         return matchId;
     }
-    public void set_matchId(long matchId){
+
+    public void set_matchId(long matchId) {
         this.matchId = matchId;
     }
-    public String get_matchMode(){
+
+    public String get_matchMode() {
         return matchMode;
     }
-    public void set_matchMode(String matchMode){
+
+    public void set_matchMode(String matchMode) {
         this.matchMode = matchMode;
     }
-    public String get_matchType(){
+
+    public String get_matchType() {
         return matchType;
     }
-    public void set_matchType(String matchType){
+
+    public void set_matchType(String matchType) {
         this.matchType = matchType;
     }
-    public String get_matchVersion(){
+
+    public String get_matchVersion() {
         return matchVersion;
     }
-    public void set_matchVersion(String matchVersion){
+
+    public void set_matchVersion(String matchVersion) {
         this.matchVersion = matchVersion;
     }
-    public ArrayList<ParticipantIdentity> get_participantIdentities(){
+
+    public ArrayList<ParticipantIdentity> get_participantIdentities() {
         return participantIdentities;
     }
-    public void set_participantIdentities(ArrayList<ParticipantIdentity> participantIdentities){
+
+    public void set_participantIdentities(
+            ArrayList<ParticipantIdentity> participantIdentities) {
         this.participantIdentities = participantIdentities;
     }
-    public ArrayList<Participant> get_participants(){
+
+    public ArrayList<Participant> get_participants() {
         return participants;
     }
-    public void set_participants(ArrayList<Participant> participants){
+
+    public void set_participants(ArrayList<Participant> participants) {
         this.participants = participants;
     }
-    public String get_platformId(){
+
+    public String get_platformId() {
         return platformId;
     }
-    public void set_platformId(String platformId){
+
+    public void set_platformId(String platformId) {
         this.platformId = platformId;
     }
-    public String get_queueType(){
+
+    public String get_queueType() {
         return queueType;
     }
-    public void set_queueType(String queueType){
+
+    public void set_queueType(String queueType) {
         this.queueType = queueType;
     }
-    public String get_region(){
+
+    public String get_region() {
         return region;
     }
-    public void set_region(String region){
+
+    public void set_region(String region) {
         this.region = region;
     }
-    public String get_season(){
+
+    public String get_season() {
         return season;
     }
-    public void set_season(String season){
+
+    public void set_season(String season) {
         this.season = season;
     }
-    public ArrayList<Team> get_teams(){
+
+    public ArrayList<Team> get_teams() {
         return teams;
     }
-    public void set_teams(ArrayList<Team> teams){
+
+    public void set_teams(ArrayList<Team> teams) {
         this.teams = teams;
     }
-    public Timeline get_timeline(){
+
+    public Timeline get_timeline() {
         return timeline;
     }
-    public void set_timeline(Timeline timeline){
+
+    public void set_timeline(Timeline timeline) {
         this.timeline = timeline;
     }
 }

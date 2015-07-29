@@ -67,394 +67,542 @@ public class BasicDataStatsDto {
     private double rPercentTimeDeadMod;
     private double rPercentTimeDeadModPerLevel;
 
-    public double get_FlatArmorMod(){
+    public double get_FlatArmorMod() {
         return FlatArmorMod;
     }
-    public void set_FlatArmorMod(double FlatArmorMod){
+
+    public void set_FlatArmorMod(double FlatArmorMod) {
         this.FlatArmorMod = FlatArmorMod;
     }
-    public double get_FlatAttackSpeedMod(){
+
+    public double get_FlatAttackSpeedMod() {
         return FlatAttackSpeedMod;
     }
-    public void set_FlatAttackSpeedMod(double FlatAttackSpeedMod){
+
+    public void set_FlatAttackSpeedMod(double FlatAttackSpeedMod) {
         this.FlatAttackSpeedMod = FlatAttackSpeedMod;
     }
-    public double get_FlatBlockMod(){
+
+    public double get_FlatBlockMod() {
         return FlatBlockMod;
     }
-    public void set_FlatBlockMod(double FlatBlockMod){
+
+    public void set_FlatBlockMod(double FlatBlockMod) {
         this.FlatBlockMod = FlatBlockMod;
     }
-    public double get_FlatCritChanceMod(){
+
+    public double get_FlatCritChanceMod() {
         return FlatCritChanceMod;
     }
-    public void set_FlatCritChanceMod(double FlatCritChanceMod){
+
+    public void set_FlatCritChanceMod(double FlatCritChanceMod) {
         this.FlatCritChanceMod = FlatCritChanceMod;
     }
-    public double get_FlatCritDamageMod(){
+
+    public double get_FlatCritDamageMod() {
         return FlatCritDamageMod;
     }
-    public void set_FlatCritDamageMod(double FlatCritDamageMod){
+
+    public void set_FlatCritDamageMod(double FlatCritDamageMod) {
         this.FlatCritDamageMod = FlatCritDamageMod;
     }
-    public double get_FlatEXPBonus(){
+
+    public double get_FlatEXPBonus() {
         return FlatEXPBonus;
     }
-    public void set_FlatEXPBonus(double FlatEXPBonus){
+
+    public void set_FlatEXPBonus(double FlatEXPBonus) {
         this.FlatEXPBonus = FlatEXPBonus;
     }
-    public double get_FlatEnergyPoolMod(){
+
+    public double get_FlatEnergyPoolMod() {
         return FlatEnergyPoolMod;
     }
-    public void set_FlatEnergyPoolMod(double FlatEnergyPoolMod){
+
+    public void set_FlatEnergyPoolMod(double FlatEnergyPoolMod) {
         this.FlatEnergyPoolMod = FlatEnergyPoolMod;
     }
-    public double get_FlatEnergyRegenMod(){
+
+    public double get_FlatEnergyRegenMod() {
         return FlatEnergyRegenMod;
     }
-    public void set_FlatEnergyRegenMod(double FlatEnergyRegenMod){
+
+    public void set_FlatEnergyRegenMod(double FlatEnergyRegenMod) {
         this.FlatEnergyRegenMod = FlatEnergyRegenMod;
     }
-    public double get_FlatHPPoolMod(){
+
+    public double get_FlatHPPoolMod() {
         return FlatHPPoolMod;
     }
-    public void set_FlatHPPoolMod(double FlatHPPoolMod){
+
+    public void set_FlatHPPoolMod(double FlatHPPoolMod) {
         this.FlatHPPoolMod = FlatHPPoolMod;
     }
-    public double get_FlatHPRegenMod(){
+
+    public double get_FlatHPRegenMod() {
         return FlatHPRegenMod;
     }
-    public void set_FlatHPRegenMod(double FlatHPRegenMod){
+
+    public void set_FlatHPRegenMod(double FlatHPRegenMod) {
         this.FlatHPRegenMod = FlatHPRegenMod;
     }
-    public double get_FlatMPPoolMod(){
+
+    public double get_FlatMPPoolMod() {
         return FlatMPPoolMod;
     }
-    public void set_FlatMPPoolMod(double FlatMPPoolMod){
+
+    public void set_FlatMPPoolMod(double FlatMPPoolMod) {
         this.FlatMPPoolMod = FlatMPPoolMod;
     }
-    public double get_FlatMPRegenMod(){
+
+    public double get_FlatMPRegenMod() {
         return FlatMPRegenMod;
     }
-    public void set_FlatMPRegenMod(double FlatMPRegenMod){
+
+    public void set_FlatMPRegenMod(double FlatMPRegenMod) {
         this.FlatMPRegenMod = FlatMPRegenMod;
     }
-    public double get_FlatMagicDamageMod(){
+
+    public double get_FlatMagicDamageMod() {
         return FlatMagicDamageMod;
     }
-    public void set_FlatMagicDamageMod(double FlatMagicDamageMod){
+
+    public void set_FlatMagicDamageMod(double FlatMagicDamageMod) {
         this.FlatMagicDamageMod = FlatMagicDamageMod;
     }
-    public double get_FlatMovementSpeedMod(){
+
+    public double get_FlatMovementSpeedMod() {
         return FlatMovementSpeedMod;
     }
-    public void set_FlatMovementSpeedMod(double FlatMovementSpeedMod){
+
+    public void set_FlatMovementSpeedMod(double FlatMovementSpeedMod) {
         this.FlatMovementSpeedMod = FlatMovementSpeedMod;
     }
-    public double get_FlatPhysicalDamageMod(){
+
+    public double get_FlatPhysicalDamageMod() {
         return FlatPhysicalDamageMod;
     }
-    public void set_FlatPhysicalDamageMod(double FlatPhysicalDamageMod){
+
+    public void set_FlatPhysicalDamageMod(double FlatPhysicalDamageMod) {
         this.FlatPhysicalDamageMod = FlatPhysicalDamageMod;
     }
-    public double get_FlatSpellBlockMod(){
+
+    public double get_FlatSpellBlockMod() {
         return FlatSpellBlockMod;
     }
-    public void set_FlatSpellBlockMod(double FlatSpellBlockMod){
+
+    public void set_FlatSpellBlockMod(double FlatSpellBlockMod) {
         this.FlatSpellBlockMod = FlatSpellBlockMod;
     }
-    public double get_PercentArmorMod(){
+
+    public double get_PercentArmorMod() {
         return PercentArmorMod;
     }
-    public void set_PercentArmorMod(double PercentArmorMod){
+
+    public void set_PercentArmorMod(double PercentArmorMod) {
         this.PercentArmorMod = PercentArmorMod;
     }
-    public double get_PercentAttackSpeedMod(){
+
+    public double get_PercentAttackSpeedMod() {
         return PercentAttackSpeedMod;
     }
-    public void set_PercentAttackSpeedMod(double PercentAttackSpeedMod){
+
+    public void set_PercentAttackSpeedMod(double PercentAttackSpeedMod) {
         this.PercentAttackSpeedMod = PercentAttackSpeedMod;
     }
-    public double get_PercentBlockMod(){
+
+    public double get_PercentBlockMod() {
         return PercentBlockMod;
     }
-    public void set_PercentBlockMod(double PercentBlockMod){
+
+    public void set_PercentBlockMod(double PercentBlockMod) {
         this.PercentBlockMod = PercentBlockMod;
     }
-    public double get_PercentCritChanceMod(){
+
+    public double get_PercentCritChanceMod() {
         return PercentCritChanceMod;
     }
-    public void set_PercentCritChanceMod(double PercentCritChanceMod){
+
+    public void set_PercentCritChanceMod(double PercentCritChanceMod) {
         this.PercentCritChanceMod = PercentCritChanceMod;
     }
-    public double get_PercentCritDamageMod(){
+
+    public double get_PercentCritDamageMod() {
         return PercentCritDamageMod;
     }
-    public void set_PercentCritDamageMod(double PercentCritDamageMod){
+
+    public void set_PercentCritDamageMod(double PercentCritDamageMod) {
         this.PercentCritDamageMod = PercentCritDamageMod;
     }
-    public double get_PercentDodgeMod(){
+
+    public double get_PercentDodgeMod() {
         return PercentDodgeMod;
     }
-    public void set_PercentDodgeMod(double PercentDodgeMod){
+
+    public void set_PercentDodgeMod(double PercentDodgeMod) {
         this.PercentDodgeMod = PercentDodgeMod;
     }
-    public double get_PercentEXPBonus(){
+
+    public double get_PercentEXPBonus() {
         return PercentEXPBonus;
     }
-    public void set_PercentEXPBonus(double PercentEXPBonus){
+
+    public void set_PercentEXPBonus(double PercentEXPBonus) {
         this.PercentEXPBonus = PercentEXPBonus;
     }
-    public double get_PercentHPPoolMod(){
+
+    public double get_PercentHPPoolMod() {
         return PercentHPPoolMod;
     }
-    public void set_PercentHPPoolMod(double PercentHPPoolMod){
+
+    public void set_PercentHPPoolMod(double PercentHPPoolMod) {
         this.PercentHPPoolMod = PercentHPPoolMod;
     }
-    public double get_PercentHPRegenMod(){
+
+    public double get_PercentHPRegenMod() {
         return PercentHPRegenMod;
     }
-    public void set_PercentHPRegenMod(double PercentHPRegenMod){
+
+    public void set_PercentHPRegenMod(double PercentHPRegenMod) {
         this.PercentHPRegenMod = PercentHPRegenMod;
     }
-    public double get_PercentLifeStealMod(){
+
+    public double get_PercentLifeStealMod() {
         return PercentLifeStealMod;
     }
-    public void set_PercentLifeStealMod(double PercentLifeStealMod){
+
+    public void set_PercentLifeStealMod(double PercentLifeStealMod) {
         this.PercentLifeStealMod = PercentLifeStealMod;
     }
-    public double get_PercentMPPoolMod(){
+
+    public double get_PercentMPPoolMod() {
         return PercentMPPoolMod;
     }
-    public void set_PercentMPPoolMod(double PercentMPPoolMod){
+
+    public void set_PercentMPPoolMod(double PercentMPPoolMod) {
         this.PercentMPPoolMod = PercentMPPoolMod;
     }
-    public double get_PercentMPRegenMod(){
+
+    public double get_PercentMPRegenMod() {
         return PercentMPRegenMod;
     }
-    public void set_PercentMPRegenMod(double PercentMPRegenMod){
+
+    public void set_PercentMPRegenMod(double PercentMPRegenMod) {
         this.PercentMPRegenMod = PercentMPRegenMod;
     }
-    public double get_PercentMagicDamageMod(){
+
+    public double get_PercentMagicDamageMod() {
         return PercentMagicDamageMod;
     }
-    public void set_PercentMagicDamageMod(double PercentMagicDamageMod){
+
+    public void set_PercentMagicDamageMod(double PercentMagicDamageMod) {
         this.PercentMagicDamageMod = PercentMagicDamageMod;
     }
-    public double get_PercentMovementSpeedMod(){
+
+    public double get_PercentMovementSpeedMod() {
         return PercentMovementSpeedMod;
     }
-    public void set_PercentMovementSpeedMod(double PercentMovementSpeedMod){
+
+    public void set_PercentMovementSpeedMod(double PercentMovementSpeedMod) {
         this.PercentMovementSpeedMod = PercentMovementSpeedMod;
     }
-    public double get_PercentPhysicalDamageMod(){
+
+    public double get_PercentPhysicalDamageMod() {
         return PercentPhysicalDamageMod;
     }
-    public void set_PercentPhysicalDamageMod(double PercentPhysicalDamageMod){
+
+    public void set_PercentPhysicalDamageMod(double PercentPhysicalDamageMod) {
         this.PercentPhysicalDamageMod = PercentPhysicalDamageMod;
     }
-    public double get_PercentSpellBlockMod(){
+
+    public double get_PercentSpellBlockMod() {
         return PercentSpellBlockMod;
     }
-    public void set_PercentSpellBlockMod(double PercentSpellBlockMod){
+
+    public void set_PercentSpellBlockMod(double PercentSpellBlockMod) {
         this.PercentSpellBlockMod = PercentSpellBlockMod;
     }
-    public double get_PercentSpellVampMod(){
+
+    public double get_PercentSpellVampMod() {
         return PercentSpellVampMod;
     }
-    public void set_PercentSpellVampMod(double PercentSpellVampMod){
+
+    public void set_PercentSpellVampMod(double PercentSpellVampMod) {
         this.PercentSpellVampMod = PercentSpellVampMod;
     }
-    public double get_rFlatArmorModPerLevel(){
+
+    public double get_rFlatArmorModPerLevel() {
         return rFlatArmorModPerLevel;
     }
-    public void set_rFlatArmorModPerLevel(double rFlatArmorModPerLevel){
+
+    public void set_rFlatArmorModPerLevel(double rFlatArmorModPerLevel) {
         this.rFlatArmorModPerLevel = rFlatArmorModPerLevel;
     }
-    public double get_rFlatArmorPenetrationMod(){
+
+    public double get_rFlatArmorPenetrationMod() {
         return rFlatArmorPenetrationMod;
     }
-    public void set_rFlatArmorPenetrationMod(double rFlatArmorPenetrationMod){
+
+    public void set_rFlatArmorPenetrationMod(double rFlatArmorPenetrationMod) {
         this.rFlatArmorPenetrationMod = rFlatArmorPenetrationMod;
     }
-    public double get_rFlatArmorPenetrationModPerLevel(){
+
+    public double get_rFlatArmorPenetrationModPerLevel() {
         return rFlatArmorPenetrationModPerLevel;
     }
-    public void set_rFlatArmorPenetrationModPerLevel(double rFlatArmorPenetrationModPerLevel){
-        this.rFlatArmorPenetrationModPerLevel = rFlatArmorPenetrationModPerLevel;
+
+    public void set_rFlatArmorPenetrationModPerLevel(
+            double rFlatArmorPenetrationModPerLevel) {
+        this.rFlatArmorPenetrationModPerLevel =
+                rFlatArmorPenetrationModPerLevel;
     }
-    public double get_rFlatCritChanceModPerLevel(){
+
+    public double get_rFlatCritChanceModPerLevel() {
         return rFlatCritChanceModPerLevel;
     }
-    public void set_rFlatCritChanceModPerLevel(double rFlatCritChanceModPerLevel){
+
+    public void set_rFlatCritChanceModPerLevel(double rFlatCritChanceModPerLevel) {
         this.rFlatCritChanceModPerLevel = rFlatCritChanceModPerLevel;
     }
-    public double get_rFlatCritDamageModPerLevel(){
+
+    public double get_rFlatCritDamageModPerLevel() {
         return rFlatCritDamageModPerLevel;
     }
-    public void set_rFlatCritDamageModPerLevel(double rFlatCritDamageModPerLevel){
+
+    public void set_rFlatCritDamageModPerLevel(double rFlatCritDamageModPerLevel) {
         this.rFlatCritDamageModPerLevel = rFlatCritDamageModPerLevel;
     }
-    public double get_rFlatDodgeMod(){
+
+    public double get_rFlatDodgeMod() {
         return rFlatDodgeMod;
     }
-    public void set_rFlatDodgeMod(double rFlatDodgeMod){
+
+    public void set_rFlatDodgeMod(double rFlatDodgeMod) {
         this.rFlatDodgeMod = rFlatDodgeMod;
     }
-    public double get_rFlatDodgeModPerLevel(){
+
+    public double get_rFlatDodgeModPerLevel() {
         return rFlatDodgeModPerLevel;
     }
-    public void set_rFlatDodgeModPerLevel(double rFlatDodgeModPerLevel){
+
+    public void set_rFlatDodgeModPerLevel(double rFlatDodgeModPerLevel) {
         this.rFlatDodgeModPerLevel = rFlatDodgeModPerLevel;
     }
-    public double get_rFlatEnergyModPerLevel(){
+
+    public double get_rFlatEnergyModPerLevel() {
         return rFlatEnergyModPerLevel;
     }
-    public void set_rFlatEnergyModPerLevel(double rFlatEnergyModPerLevel){
+
+    public void set_rFlatEnergyModPerLevel(double rFlatEnergyModPerLevel) {
         this.rFlatEnergyModPerLevel = rFlatEnergyModPerLevel;
     }
-    public double get_rFlatEnergyRegenModPerLevel(){
+
+    public double get_rFlatEnergyRegenModPerLevel() {
         return rFlatEnergyRegenModPerLevel;
     }
-    public void set_rFlatEnergyRegenModPerLevel(double rFlatEnergyRegenModPerLevel){
+
+    public void set_rFlatEnergyRegenModPerLevel(
+            double rFlatEnergyRegenModPerLevel) {
         this.rFlatEnergyRegenModPerLevel = rFlatEnergyRegenModPerLevel;
     }
-    public double get_rFlatGoldPer10Mod(){
+
+    public double get_rFlatGoldPer10Mod() {
         return rFlatGoldPer10Mod;
     }
-    public void set_rFlatGoldPer10Mod(double rFlatGoldPer10Mod){
+
+    public void set_rFlatGoldPer10Mod(double rFlatGoldPer10Mod) {
         this.rFlatGoldPer10Mod = rFlatGoldPer10Mod;
     }
-    public double get_rFlatHPModPerLevel(){
+
+    public double get_rFlatHPModPerLevel() {
         return rFlatHPModPerLevel;
     }
-    public void set_rFlatHPModPerLevel(double rFlatHPModPerLevel){
+
+    public void set_rFlatHPModPerLevel(double rFlatHPModPerLevel) {
         this.rFlatHPModPerLevel = rFlatHPModPerLevel;
     }
-    public double get_rFlatHPRegenModPerLevel(){
+
+    public double get_rFlatHPRegenModPerLevel() {
         return rFlatHPRegenModPerLevel;
     }
-    public void set_rFlatHPRegenModPerLevel(double rFlatHPRegenModPerLevel){
+
+    public void set_rFlatHPRegenModPerLevel(double rFlatHPRegenModPerLevel) {
         this.rFlatHPRegenModPerLevel = rFlatHPRegenModPerLevel;
     }
-    public double get_rFlatMPModPerLevel(){
+
+    public double get_rFlatMPModPerLevel() {
         return rFlatMPModPerLevel;
     }
-    public void set_rFlatMPModPerLevel(double rFlatMPModPerLevel){
+
+    public void set_rFlatMPModPerLevel(double rFlatMPModPerLevel) {
         this.rFlatMPModPerLevel = rFlatMPModPerLevel;
     }
-    public double get_rFlatMPRegenModPerLevel(){
+
+    public double get_rFlatMPRegenModPerLevel() {
         return rFlatMPRegenModPerLevel;
     }
-    public void set_rFlatMPRegenModPerLevel(double rFlatMPRegenModPerLevel){
+
+    public void set_rFlatMPRegenModPerLevel(double rFlatMPRegenModPerLevel) {
         this.rFlatMPRegenModPerLevel = rFlatMPRegenModPerLevel;
     }
-    public double get_rFlatMagicDamageModPerLevel(){
+
+    public double get_rFlatMagicDamageModPerLevel() {
         return rFlatMagicDamageModPerLevel;
     }
-    public void set_rFlatMagicDamageModPerLevel(double rFlatMagicDamageModPerLevel){
+
+    public void set_rFlatMagicDamageModPerLevel(
+            double rFlatMagicDamageModPerLevel) {
         this.rFlatMagicDamageModPerLevel = rFlatMagicDamageModPerLevel;
     }
-    public double get_rFlatMagicPenetrationMod(){
+
+    public double get_rFlatMagicPenetrationMod() {
         return rFlatMagicPenetrationMod;
     }
-    public void set_rFlatMagicPenetrationMod(double rFlatMagicPenetrationMod){
+
+    public void set_rFlatMagicPenetrationMod(double rFlatMagicPenetrationMod) {
         this.rFlatMagicPenetrationMod = rFlatMagicPenetrationMod;
     }
-    public double get_rFlatMagicPenetrationModPerLevel(){
+
+    public double get_rFlatMagicPenetrationModPerLevel() {
         return rFlatMagicPenetrationModPerLevel;
     }
-    public void set_rFlatMagicPenetrationModPerLevel(double rFlatMagicPenetrationModPerLevel){
-        this.rFlatMagicPenetrationModPerLevel = rFlatMagicPenetrationModPerLevel;
+
+    public void set_rFlatMagicPenetrationModPerLevel(
+            double rFlatMagicPenetrationModPerLevel) {
+        this.rFlatMagicPenetrationModPerLevel =
+                rFlatMagicPenetrationModPerLevel;
     }
-    public double get_rFlatMovementSpeedModPerLevel(){
+
+    public double get_rFlatMovementSpeedModPerLevel() {
         return rFlatMovementSpeedModPerLevel;
     }
-    public void set_rFlatMovementSpeedModPerLevel(double rFlatMovementSpeedModPerLevel){
+
+    public void set_rFlatMovementSpeedModPerLevel(
+            double rFlatMovementSpeedModPerLevel) {
         this.rFlatMovementSpeedModPerLevel = rFlatMovementSpeedModPerLevel;
     }
-    public double get_rFlatPhysicalDamageModPerLevel(){
+
+    public double get_rFlatPhysicalDamageModPerLevel() {
         return rFlatPhysicalDamageModPerLevel;
     }
-    public void set_rFlatPhysicalDamageModPerLevel(double rFlatPhysicalDamageModPerLevel){
+
+    public void set_rFlatPhysicalDamageModPerLevel(
+            double rFlatPhysicalDamageModPerLevel) {
         this.rFlatPhysicalDamageModPerLevel = rFlatPhysicalDamageModPerLevel;
     }
-    public double get_rFlatSpellBlockModPerLevel(){
+
+    public double get_rFlatSpellBlockModPerLevel() {
         return rFlatSpellBlockModPerLevel;
     }
-    public void set_rFlatSpellBlockModPerLevel(double rFlatSpellBlockModPerLevel){
+
+    public void set_rFlatSpellBlockModPerLevel(double rFlatSpellBlockModPerLevel) {
         this.rFlatSpellBlockModPerLevel = rFlatSpellBlockModPerLevel;
     }
-    public double get_rFlatTimeDeadMod(){
+
+    public double get_rFlatTimeDeadMod() {
         return rFlatTimeDeadMod;
     }
-    public void set_rFlatTimeDeadMod(double rFlatTimeDeadMod){
+
+    public void set_rFlatTimeDeadMod(double rFlatTimeDeadMod) {
         this.rFlatTimeDeadMod = rFlatTimeDeadMod;
     }
-    public double get_rFlatTimeDeadModPerLevel(){
+
+    public double get_rFlatTimeDeadModPerLevel() {
         return rFlatTimeDeadModPerLevel;
     }
-    public void set_rFlatTimeDeadModPerLevel(double rFlatTimeDeadModPerLevel){
+
+    public void set_rFlatTimeDeadModPerLevel(double rFlatTimeDeadModPerLevel) {
         this.rFlatTimeDeadModPerLevel = rFlatTimeDeadModPerLevel;
     }
-    public double get_rPercentArmorPenetrationMod(){
+
+    public double get_rPercentArmorPenetrationMod() {
         return rPercentArmorPenetrationMod;
     }
-    public void set_rPercentArmorPenetrationMod(double rPercentArmorPenetrationMod){
+
+    public void set_rPercentArmorPenetrationMod(
+            double rPercentArmorPenetrationMod) {
         this.rPercentArmorPenetrationMod = rPercentArmorPenetrationMod;
     }
-    public double get_rPercentArmorPenetrationModPerLevel(){
+
+    public double get_rPercentArmorPenetrationModPerLevel() {
         return rPercentArmorPenetrationModPerLevel;
     }
-    public void set_rPercentArmorPenetrationModPerLevel(double rPercentArmorPenetrationModPerLevel){
-        this.rPercentArmorPenetrationModPerLevel = rPercentArmorPenetrationModPerLevel;
+
+    public void set_rPercentArmorPenetrationModPerLevel(
+            double rPercentArmorPenetrationModPerLevel) {
+        this.rPercentArmorPenetrationModPerLevel =
+                rPercentArmorPenetrationModPerLevel;
     }
-    public double get_rPercentAttackSpeedModPerLevel(){
+
+    public double get_rPercentAttackSpeedModPerLevel() {
         return rPercentAttackSpeedModPerLevel;
     }
-    public void set_rPercentAttackSpeedModPerLevel(double rPercentAttackSpeedModPerLevel){
+
+    public void set_rPercentAttackSpeedModPerLevel(
+            double rPercentAttackSpeedModPerLevel) {
         this.rPercentAttackSpeedModPerLevel = rPercentAttackSpeedModPerLevel;
     }
-    public double get_rPercentCooldownMod(){
+
+    public double get_rPercentCooldownMod() {
         return rPercentCooldownMod;
     }
-    public void set_rPercentCooldownMod(double rPercentCooldownMod){
+
+    public void set_rPercentCooldownMod(double rPercentCooldownMod) {
         this.rPercentCooldownMod = rPercentCooldownMod;
     }
-    public double get_rPercentCooldownModPerLevel(){
+
+    public double get_rPercentCooldownModPerLevel() {
         return rPercentCooldownModPerLevel;
     }
-    public void set_rPercentCooldownModPerLevel(double rPercentCooldownModPerLevel){
+
+    public void set_rPercentCooldownModPerLevel(
+            double rPercentCooldownModPerLevel) {
         this.rPercentCooldownModPerLevel = rPercentCooldownModPerLevel;
     }
-    public double get_rPercentMagicPenetrationMod(){
+
+    public double get_rPercentMagicPenetrationMod() {
         return rPercentMagicPenetrationMod;
     }
-    public void set_rPercentMagicPenetrationMod(double rPercentMagicPenetrationMod){
+
+    public void set_rPercentMagicPenetrationMod(
+            double rPercentMagicPenetrationMod) {
         this.rPercentMagicPenetrationMod = rPercentMagicPenetrationMod;
     }
-    public double get_rPercentMagicPenetrationModPerLevel(){
+
+    public double get_rPercentMagicPenetrationModPerLevel() {
         return rPercentMagicPenetrationModPerLevel;
     }
-    public void set_rPercentMagicPenetrationModPerLevel(double rPercentMagicPenetrationModPerLevel){
-        this.rPercentMagicPenetrationModPerLevel = rPercentMagicPenetrationModPerLevel;
+
+    public void set_rPercentMagicPenetrationModPerLevel(
+            double rPercentMagicPenetrationModPerLevel) {
+        this.rPercentMagicPenetrationModPerLevel =
+                rPercentMagicPenetrationModPerLevel;
     }
-    public double get_rPercentMovementSpeedModPerLevel(){
+
+    public double get_rPercentMovementSpeedModPerLevel() {
         return rPercentMovementSpeedModPerLevel;
     }
-    public void set_rPercentMovementSpeedModPerLevel(double rPercentMovementSpeedModPerLevel){
-        this.rPercentMovementSpeedModPerLevel = rPercentMovementSpeedModPerLevel;
+
+    public void set_rPercentMovementSpeedModPerLevel(
+            double rPercentMovementSpeedModPerLevel) {
+        this.rPercentMovementSpeedModPerLevel =
+                rPercentMovementSpeedModPerLevel;
     }
-    public double get_rPercentTimeDeadMod(){
+
+    public double get_rPercentTimeDeadMod() {
         return rPercentTimeDeadMod;
     }
-    public void set_rPercentTimeDeadMod(double rPercentTimeDeadMod){
+
+    public void set_rPercentTimeDeadMod(double rPercentTimeDeadMod) {
         this.rPercentTimeDeadMod = rPercentTimeDeadMod;
     }
-    public double get_rPercentTimeDeadModPerLevel(){
+
+    public double get_rPercentTimeDeadModPerLevel() {
         return rPercentTimeDeadModPerLevel;
     }
-    public void set_rPercentTimeDeadModPerLevel(double rPercentTimeDeadModPerLevel){
+
+    public void set_rPercentTimeDeadModPerLevel(
+            double rPercentTimeDeadModPerLevel) {
         this.rPercentTimeDeadModPerLevel = rPercentTimeDeadModPerLevel;
     }
 }
