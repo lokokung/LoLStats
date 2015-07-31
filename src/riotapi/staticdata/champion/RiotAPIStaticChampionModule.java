@@ -1,34 +1,34 @@
-package riotapi.summoner;
+package riotapi.staticdata.champion;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import riotapi.core.IRiotAPIModule;
 import riotapi.game.RecentGamesDto;
 import util.URLHandler;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-public class RiotAPISummonerModule implements IRiotAPIModule{
-    private final String riotAPISummoner_version = "1.4";
-    private final String riotAPISummoner_summoners =
-            "https://%2$s.api.pvp.net/api/lol/%2$s/v%1$s/summoner/"
-                    + "by-name/%3$s?api_key=%4$s";
+public class RiotAPIStaticChampionModule implements IRiotAPIModule{
+    private final String riotAPIStatic_version = "1.2";
+    private final String riotAPIStatic_champions =
+            "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
+                    + "champion?dataById=true&api_key=%3$s";
 
     private final Gson gson;
     private final URLHandler urlHandler;
     private final HashMap<Type, String> type_map;
-
-    public RiotAPISummonerModule(Gson gson, URLHandler urlHandler) {
+    
+    public RiotAPIStaticChampionModule(Gson gson, URLHandler urlHandler) {
         this.gson = gson;
         this.urlHandler = urlHandler;
 
         this.type_map = new HashMap<Type, String>();
-        Type summonerMap = new TypeToken<HashMap<String, SummonerDto>>() {
+        Type champListDto = new TypeToken<ChampionListDto>() {
         }.getType();
-        this.type_map.put(summonerMap, this.riotAPISummoner_summoners);
+        this.type_map.put(champListDto, this.riotAPIStatic_champions);
     }
 
     @SuppressWarnings("unchecked")
@@ -38,8 +38,7 @@ public class RiotAPISummonerModule implements IRiotAPIModule{
         if (type_map.containsKey(objType)) {
             String query =
                     String.format(this.type_map.get(objType),
-                            riotAPISummoner_version, args.get(0), args.get(1),
-                            args.get(2));
+                            riotAPIStatic_version, args.get(0), args.get(1));
             String jsonString = urlHandler.requestGetString(query);
             if (jsonString == null) {
                 return null;
@@ -50,4 +49,5 @@ public class RiotAPISummonerModule implements IRiotAPIModule{
         }
         return null;
     }
+
 }
