@@ -1,4 +1,4 @@
-package riotapi.staticdata.champion;
+package riotapi.staticdata.map;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -10,24 +10,24 @@ import util.URLHandler;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class RiotAPIStaticChampionModule implements IRiotAPIModule {
+public class RiotAPIStaticMapModule implements IRiotAPIModule {
     private final String riotAPIStatic_version = "1.2";
-    private final String riotAPIStatic_champions =
+    private final String riotAPIStatic_map =
             "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
-                    + "champion?dataById=true&api_key=%3$s";
+                    + "map?&api_key=%3$s";
 
     private final Gson gson;
     private final URLHandler urlHandler;
     private final HashMap<Type, String> type_map;
 
-    public RiotAPIStaticChampionModule(Gson gson, URLHandler urlHandler) {
+    public RiotAPIStaticMapModule(Gson gson, URLHandler urlHandler) {
         this.gson = gson;
         this.urlHandler = urlHandler;
 
         this.type_map = new HashMap<Type, String>();
-        Type champListDto = new TypeToken<ChampionListDto>() {
+        Type mapDataDto = new TypeToken<MapDataDto>() {
         }.getType();
-        this.type_map.put(champListDto, this.riotAPIStatic_champions);
+        this.type_map.put(mapDataDto, this.riotAPIStatic_map);
     }
 
     @SuppressWarnings("unchecked")

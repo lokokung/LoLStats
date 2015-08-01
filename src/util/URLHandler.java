@@ -18,75 +18,66 @@ import riotapi.exceptions.UnauthorizedException;
 import riotapi.exceptions.UnavailableException;
 
 public class URLHandler {
-    public URLHandler(){
+    public URLHandler() {
     }
-    
-    public void handleExceptions(int code) throws 
-    BadRequestException, 
-    UnauthorizedException, 
-    RateLimitException, 
-    InternalServerException, 
-    UnavailableException, 
-    DataNotFoundException
-    {
-        if(code == 400)
+
+    public void handleExceptions(int code) throws BadRequestException,
+            UnauthorizedException, RateLimitException, InternalServerException,
+            UnavailableException, DataNotFoundException {
+        if (code == 400)
             throw new BadRequestException();
-        if(code == 401)
+        if (code == 401)
             throw new UnauthorizedException();
-        if(code == 404)
+        if (code == 404)
             throw new DataNotFoundException();
-        if(code == 429)
+        if (code == 429)
             throw new RateLimitException();
-        if(code == 500)
+        if (code == 500)
             throw new InternalServerException();
-        if(code == 503)
+        if (code == 503)
             throw new UnavailableException();
     }
-    
-    public InputStream requestGetInputStream(String url) throws Exception{
+
+    public InputStream requestGetInputStream(String url) throws Exception {
         HttpURLConnection conn = null;
         int responseCode = -1;
-        try{
+        try {
             URL httpRequest = new URL(url);
             conn = (HttpURLConnection) httpRequest.openConnection();
             conn.setRequestMethod("GET");
             responseCode = conn.getResponseCode();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
-        
+
         handleExceptions(responseCode);
         return conn.getInputStream();
     }
-    
-    public String requestGetString(String url) throws Exception{
+
+    public String requestGetString(String url) throws Exception {
         InputStream stream = requestGetInputStream(url);
         return getStringFromStream(stream);
     }
-    
-    public String getStringFromStream(InputStream stream){
-        if(stream != null){
+
+    public String getStringFromStream(InputStream stream) {
+        if (stream != null) {
             StringWriter writer = new StringWriter();
             try {
                 IOUtils.copy(stream, writer);
-            } 
-            catch (IOException e) {
+            } catch (IOException e) {
                 return null;
-            }
-            finally{
+            } finally {
                 try {
                     stream.close();
-                } 
-                catch (IOException e) {
+                } catch (IOException e) {
                 }
             }
             return writer.toString();
         }
         return null;
     }
-    
-    public boolean writeStringToFile(String toWrite, File fileDestination){
+
+    public boolean writeStringToFile(String toWrite, File fileDestination) {
         FileWriter output = null;
         boolean written = false;
         try {
@@ -94,15 +85,12 @@ public class URLHandler {
             output.write(toWrite);
             output.flush();
             written = true;
-        } 
-        catch (IOException e) {
-        }
-        finally{
-            if(output != null){
+        } catch (IOException e) {
+        } finally {
+            if (output != null) {
                 try {
                     output.close();
-                } 
-                catch (IOException e) {
+                } catch (IOException e) {
                 }
             }
         }

@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import riotapi.core.IRiotAPIModule;
-import riotapi.game.RecentGamesDto;
 import util.URLHandler;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class RiotAPISummonerModule implements IRiotAPIModule{
+public class RiotAPISummonerModule implements IRiotAPIModule {
     private final String riotAPISummoner_version = "1.4";
     private final String riotAPISummoner_summoners =
             "https://%2$s.api.pvp.net/api/lol/%2$s/v%1$s/summoner/"
@@ -44,7 +43,7 @@ public class RiotAPISummonerModule implements IRiotAPIModule{
             if (jsonString == null) {
                 return null;
             }
-            
+
             T result = (T) gson.fromJson(jsonString, objType);
             return result;
         }

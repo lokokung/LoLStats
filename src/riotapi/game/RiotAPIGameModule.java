@@ -43,7 +43,7 @@ public class RiotAPIGameModule implements IRiotAPIModule {
             if (jsonString == null) {
                 return null;
             }
-            
+
             T result = (T) gson.fromJson(jsonString, objType);
             return result;
         }
