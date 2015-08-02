@@ -8,6 +8,7 @@ import riotapi.core.IRiotAPIModule;
 import riotapi.staticdata.champion.ChampionListDto;
 import riotapi.staticdata.item.ItemListDto;
 import riotapi.staticdata.map.MapDataDto;
+import riotapi.staticdata.realm.RealmDto;
 import riotapi.staticdata.summonerspell.SummonerSpellListDto;
 import util.URLHandler;
 
@@ -28,6 +29,12 @@ public class RiotAPIStaticModule implements IRiotAPIModule {
     private final String riotAPIStatic_summonerspells =
             "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
                     + "summoner-spell?&api_key=%3$s";
+    private final String riotAPIStatic_versionList =
+            "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
+                    + "versions?&api_key=%3$s";
+    private final String riotAPIStatic_realm =
+            "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
+                    + "realm?&api_key=%3$s";
 
     private final Gson gson;
     private final URLHandler urlHandler;
@@ -47,11 +54,17 @@ public class RiotAPIStaticModule implements IRiotAPIModule {
         }.getType();
         Type summonerSpellListDto = new TypeToken<SummonerSpellListDto>() {
         }.getType();
+        Type versionList = new TypeToken<ArrayList<String>>() {
+        }.getType();
+        Type realmDto = new TypeToken<RealmDto>() {
+        }.getType();
         
         this.type_map.put(champListDto, this.riotAPIStatic_champions);
         this.type_map.put(itemListDto, this.riotAPIStatic_items);
         this.type_map.put(mapDataDto, this.riotAPIStatic_map);
         this.type_map.put(summonerSpellListDto, this.riotAPIStatic_summonerspells);
+        this.type_map.put(versionList, this.riotAPIStatic_versionList);
+        this.type_map.put(realmDto, this.riotAPIStatic_realm);
     }
 
     @SuppressWarnings("unchecked")
