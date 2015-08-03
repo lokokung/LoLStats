@@ -4,15 +4,13 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import javafx.scene.image.Image;
 import riotapi.core.IRiotAPIModule;
-import riotapi.game.RecentGamesDto;
-import riotapi.staticdata.champion.ChampionListDto;
 import riotapi.staticdata.realm.RealmDto;
 import util.URLHandler;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class RiotAPIImageModule implements IRiotAPIModule {
@@ -21,6 +19,8 @@ public class RiotAPIImageModule implements IRiotAPIModule {
     private final String riotAPIImage_spell = "/img/spell/";
     private final String riotAPIImage_map = "/img/map/";
 
+    private final HashMap<Type, HashMap<String, Object>> imgCache;
+
     private final URLHandler urlHandler;
     private final HashMap<Type, String> type_map;
 
@@ -28,8 +28,10 @@ public class RiotAPIImageModule implements IRiotAPIModule {
     private String version;
     private String cdnUrl;
 
-    public RiotAPIImageModule(URLHandler urlHandler) {
+    public RiotAPIImageModule(URLHandler urlHandler,
+            HashMap<Type, HashMap<String, Object>> imgCache) {
         this.urlHandler = urlHandler;
+        this.imgCache = imgCache;
         this.realm = null;
         this.version = null;
         this.cdnUrl = null;
@@ -54,8 +56,15 @@ public class RiotAPIImageModule implements IRiotAPIModule {
     public boolean setRealm(RealmDto realm) {
         if (realm != null) {
             this.realm = realm;
-            this.version = "/" + realm.get_v();
-            this.cdnUrl = realm.get_cdn();
+            String new_version = "/" + realm.get_v();
+            String new_cdnUrl = realm.get_cdn();
+            if (!new_version.equals(this.version)
+                    || !new_cdnUrl.equals(this.cdnUrl)) {
+                imgCache.clear();
+            }
+
+            this.version = new_version;
+            this.cdnUrl = new_cdnUrl;
             return true;
         }
         return false;
@@ -66,15 +75,36 @@ public class RiotAPIImageModule implements IRiotAPIModule {
     public <T> T queryAPI(ArrayList<String> args, Type objType)
             throws Exception {
         if (realm != null && type_map.containsKey(objType)) {
+            String imgName = args.get(0);
             String query =
                     this.cdnUrl + this.version + type_map.get(objType)
-                            + args.get(0);
+                            + imgName;
+
+            if (imgCache.containsKey(objType)) {
+                HashMap<String, Object> map = imgCache.get(objType);
+                if (map.containsKey(imgName)) {
+                    return (T) map.get(imgName);
+                }
+                InputStream imageStream =
+                        urlHandler.requestGetInputStream(query);
+                if (imageStream == null) {
+                    return null;
+                }
+                Image img = new Image(imageStream);
+                map.put(imgName, img);
+                return (T) img;
+            }
+
+            HashMap<String, Object> map = new HashMap<String, Object>();
+
             InputStream imageStream = urlHandler.requestGetInputStream(query);
             if (imageStream == null) {
                 return null;
             }
-
-            return (T) new Image(imageStream);
+            Image img = new Image(imageStream);
+            map.put(imgName, img);
+            imgCache.put(objType, map);
+            return (T) img;
         }
         return null;
     }

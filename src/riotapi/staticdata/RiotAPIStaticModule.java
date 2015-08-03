@@ -45,7 +45,7 @@ public class RiotAPIStaticModule implements IRiotAPIModule {
         this.urlHandler = urlHandler;
 
         this.type_map = new HashMap<Type, String>();
-        
+
         Type champListDto = new TypeToken<ChampionListDto>() {
         }.getType();
         Type itemListDto = new TypeToken<ItemListDto>() {
@@ -58,11 +58,12 @@ public class RiotAPIStaticModule implements IRiotAPIModule {
         }.getType();
         Type realmDto = new TypeToken<RealmDto>() {
         }.getType();
-        
+
         this.type_map.put(champListDto, this.riotAPIStatic_champions);
         this.type_map.put(itemListDto, this.riotAPIStatic_items);
         this.type_map.put(mapDataDto, this.riotAPIStatic_map);
-        this.type_map.put(summonerSpellListDto, this.riotAPIStatic_summonerspells);
+        this.type_map.put(summonerSpellListDto,
+                this.riotAPIStatic_summonerspells);
         this.type_map.put(versionList, this.riotAPIStatic_versionList);
         this.type_map.put(realmDto, this.riotAPIStatic_realm);
     }

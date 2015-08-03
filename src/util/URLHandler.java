@@ -18,20 +18,31 @@ import riotapi.exceptions.UnauthorizedException;
 import riotapi.exceptions.UnavailableException;
 
 public class URLHandler {
-    public URLHandler() {
-    }
+    private final int timeout = 1500;
 
-    public void handleExceptions(int code) throws BadRequestException,
-            UnauthorizedException, RateLimitException, InternalServerException,
-            UnavailableException, DataNotFoundException {
+    public void handleExceptions(int code, HttpURLConnection conn)
+            throws BadRequestException, UnauthorizedException,
+            RateLimitException, InternalServerException, UnavailableException,
+            DataNotFoundException {
         if (code == 400)
             throw new BadRequestException();
         if (code == 401)
             throw new UnauthorizedException();
         if (code == 404)
             throw new DataNotFoundException();
-        if (code == 429)
-            throw new RateLimitException();
+        if (code == 429) {
+            String waitTimeString = conn.getHeaderField("Retry-After");
+            int waitTime = 0;
+            try {
+                waitTime = Integer.parseInt(waitTimeString);
+            } catch (Exception e) {
+                throw new RateLimitException();
+            }
+            try {
+                Thread.sleep(waitTime);
+            } catch (Exception e) {
+            }
+        }
         if (code == 500)
             throw new InternalServerException();
         if (code == 503)
@@ -45,12 +56,13 @@ public class URLHandler {
             URL httpRequest = new URL(url);
             conn = (HttpURLConnection) httpRequest.openConnection();
             conn.setRequestMethod("GET");
+            conn.setConnectTimeout(this.timeout);
             responseCode = conn.getResponseCode();
         } catch (Exception e) {
             return null;
         }
 
-        handleExceptions(responseCode);
+        handleExceptions(responseCode, conn);
         return conn.getInputStream();
     }
 

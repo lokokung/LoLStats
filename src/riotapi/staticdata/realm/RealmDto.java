@@ -13,58 +13,75 @@ public class RealmDto {
     private String store;
     private String v;
 
-    public String get_cdn(){
+    public String get_cdn() {
         return cdn;
     }
-    public void set_cdn(String cdn){
+
+    public void set_cdn(String cdn) {
         this.cdn = cdn;
     }
-    public String get_css(){
+
+    public String get_css() {
         return css;
     }
-    public void set_css(String css){
+
+    public void set_css(String css) {
         this.css = css;
     }
-    public String get_dd(){
+
+    public String get_dd() {
         return dd;
     }
-    public void set_dd(String dd){
+
+    public void set_dd(String dd) {
         this.dd = dd;
     }
-    public String get_l(){
+
+    public String get_l() {
         return l;
     }
-    public void set_l(String l){
+
+    public void set_l(String l) {
         this.l = l;
     }
-    public String get_lg(){
+
+    public String get_lg() {
         return lg;
     }
-    public void set_lg(String lg){
+
+    public void set_lg(String lg) {
         this.lg = lg;
     }
-    public HashMap<String, String> get_n(){
+
+    public HashMap<String, String> get_n() {
         return n;
     }
-    public void set_n(HashMap<String, String> n){
+
+    public void set_n(HashMap<String, String> n) {
         this.n = n;
     }
-    public int get_profileiconmax(){
+
+    public int get_profileiconmax() {
         return profileiconmax;
     }
-    public void set_profileiconmax(int profileiconmax){
+
+    public void set_profileiconmax(int profileiconmax) {
         this.profileiconmax = profileiconmax;
     }
-    public String get_store(){
+
+    public String get_store() {
         return store;
     }
-    public void set_store(String store){
+
+    public void set_store(String store) {
         this.store = store;
     }
-    public String get_v(){
+
+    public String get_v() {
         return v;
     }
-    public void set_v(String v){
+
+    public void set_v(String v) {
         this.v = v;
     }
 }
