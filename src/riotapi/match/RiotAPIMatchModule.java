@@ -38,13 +38,12 @@ public class RiotAPIMatchModule implements IRiotAPIModule {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> T queryAPI(ArrayList<String> args, Type objType)
+    public <T> T queryAPI(Type objType, String apiKey, String... args)
             throws Exception {
         if (type_map.containsKey(objType)) {
             String query =
                     String.format(this.type_map.get(objType),
-                            riotAPIMatch_version, args.get(0), args.get(1),
-                            args.get(2));
+                            riotAPIMatch_version, args[0], args[1], apiKey);
             String jsonString = urlHandler.requestGetString(query);
             if (jsonString == null) {
                 return null;

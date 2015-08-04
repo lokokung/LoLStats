@@ -71,10 +71,10 @@ public class RiotAPIImageModule implements IRiotAPIModule {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> T queryAPI(ArrayList<String> args, Type objType)
+    public <T> T queryAPI(Type objType, String apiKey, String... args)
             throws Exception {
         if (realm != null && type_map.containsKey(objType)) {
-            String imgName = args.get(0);
+            String imgName = args[0];
             String query =
                     this.cdnUrl + this.version + type_map.get(objType)
                             + imgName;

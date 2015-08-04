@@ -28,7 +28,7 @@ public class RiotAPIStaticModule implements IRiotAPIModule {
                     + "map?&api_key=%3$s";
     private final String riotAPIStatic_summonerspells =
             "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
-                    + "summoner-spell?&api_key=%3$s";
+                    + "summoner-spell?dataById=true&api_key=%3$s";
     private final String riotAPIStatic_versionList =
             "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
                     + "versions?&api_key=%3$s";
@@ -70,12 +70,12 @@ public class RiotAPIStaticModule implements IRiotAPIModule {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> T queryAPI(ArrayList<String> args, Type objType)
+    public <T> T queryAPI(Type objType, String apiKey, String... args)
             throws Exception {
         if (type_map.containsKey(objType)) {
             String query =
                     String.format(this.type_map.get(objType),
-                            riotAPIStatic_version, args.get(0), args.get(1));
+                            riotAPIStatic_version, args[0], apiKey);
             String jsonString = urlHandler.requestGetString(query);
             if (jsonString == null) {
                 return null;
