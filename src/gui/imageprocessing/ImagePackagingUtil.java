@@ -31,6 +31,8 @@ public class ImagePackagingUtil {
     private final Type champListT;
     private final Type spellListT;
     private final Type itemListT;
+    
+    private final String matchList = "MatchList";
 
     @Inject
     public ImagePackagingUtil(
@@ -81,41 +83,41 @@ public class ImagePackagingUtil {
         // Champion image always comes first.
         String champImgString = champ.get_image().get_full();
         String champName = champ.get_name();
-        champView = imgViewCache.get(champT).get(champImgString);
+        champView = imgViewCache.get(champT).get(champImgString + matchList);
         if (champView == null) {
             Image champImg = riot.getAPIObject(champT, false, champImgString);
             champView = new ImageView(champImg);
             champView.setFitWidth(51);
             champView.setPreserveRatio(true);
             champView.setCache(true);
-            imgViewCache.get(champT).put(champImgString, champView);
+            imgViewCache.get(champT).put(champImgString + matchList, champView);
         }
         imgPackage.add(new ImageBlock(champName, champView));
 
         // Summoner spell images follow.
         String spell1String = spell1.get_image().get_full();
         String spell1Name = spell1.get_name();
-        spell1View = imgViewCache.get(spellT).get(spell1String);
+        spell1View = imgViewCache.get(spellT).get(spell1String + matchList);
         if (spell1View == null) {
             Image spell1Img = riot.getAPIObject(spellT, false, spell1String);
             spell1View = new ImageView(spell1Img);
             spell1View.setFitWidth(25);
             spell1View.setPreserveRatio(true);
             spell1View.setCache(true);
-            imgViewCache.get(spellT).put(spell1String, spell1View);
+            imgViewCache.get(spellT).put(spell1String + matchList, spell1View);
         }
         imgPackage.add(new ImageBlock(spell1Name, spell1View));
 
         String spell2String = spell2.get_image().get_full();
         String spell2Name = spell2.get_name();
-        spell2View = imgViewCache.get(spellT).get(spell2String);
+        spell2View = imgViewCache.get(spellT).get(spell2String + matchList);
         if (spell2View == null) {
             Image spell2Img = riot.getAPIObject(spellT, false, spell2String);
             spell2View = new ImageView(spell2Img);
             spell2View.setFitWidth(25);
             spell2View.setPreserveRatio(true);
             spell2View.setCache(true);
-            imgViewCache.get(spellT).put(spell2String, spell2View);
+            imgViewCache.get(spellT).put(spell2String + matchList, spell2View);
         }
         imgPackage.add(new ImageBlock(spell2Name, spell2View));
 
@@ -125,7 +127,7 @@ public class ImagePackagingUtil {
                 ItemDto item = itemMap.get(items.get(i).toString());
                 String itemString = item.get_image().get_full();
                 String itemName = item.get_name();
-                itemView = imgViewCache.get(itemT).get(itemString);
+                itemView = imgViewCache.get(itemT).get(itemString + matchList);
                 if (itemView == null) {
                     Image itemImg =
                             riot.getAPIObject(itemT, false, items.get(i)
@@ -134,13 +136,22 @@ public class ImagePackagingUtil {
                     itemView.setFitWidth(25);
                     itemView.setPreserveRatio(true);
                     itemView.setCache(true);
-                    imgViewCache.get(itemT).put(itemString, itemView);
+                    imgViewCache.get(itemT).put(itemString + matchList, itemView);
                 }
                 imgPackage.add(new ImageBlock(itemName, itemView));
             } else
                 imgPackage.add(null);
         }
 
+        return imgPackage;
+    }
+    
+    public ArrayList<ImageBlock> getSingleMatchListTooltipPackage(
+            MatchDataList data){
+        ArrayList<ImageBlock> imgPackage = new ArrayList<ImageBlock>();
+        
+        
+        
         return imgPackage;
     }
 

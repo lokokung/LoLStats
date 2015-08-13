@@ -3,12 +3,16 @@ package core.inject;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import riotapi.core.IRiotAPIModule;
+import riotapi.staticdata.champion.ChampionListDto;
 import riotapi.staticdata.image.ChampionImage;
 import riotapi.staticdata.image.ItemImage;
 import riotapi.staticdata.image.MapImage;
 import riotapi.staticdata.image.SpellImage;
+import riotapi.staticdata.item.ItemListDto;
+import riotapi.staticdata.summonerspell.SummonerSpellListDto;
 
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.AbstractModule;
@@ -78,6 +82,26 @@ public class MapsInjectorModule extends AbstractModule {
         imgViewCache.put(spellImg.getType(), itemViewCache);
 
         return imgViewCache;
+    }
+    
+    @Provides
+    @Singleton
+    HashMap<Type, HashMap<String, Tooltip>> provideTooltipCache(
+            TypeToken<ChampionListDto> champListDto,
+            TypeToken<ItemListDto> itemListDto,
+            TypeToken<SummonerSpellListDto> spellListDto){
+        
+        HashMap<Type, HashMap<String, Tooltip>> tooltipCache = 
+                new HashMap<Type, HashMap<String, Tooltip>>();
+        
+        HashMap<String, Tooltip> champTooltipCache = new HashMap<String, Tooltip>();
+        HashMap<String, Tooltip> itemTooltipCache = new HashMap<String, Tooltip>();
+        HashMap<String, Tooltip> spellTooltipCache = new HashMap<String, Tooltip>();
+        tooltipCache.put(champListDto.getType(), champTooltipCache);
+        tooltipCache.put(itemListDto.getType(), itemTooltipCache);
+        tooltipCache.put(spellListDto.getType(), spellTooltipCache);
+        
+        return tooltipCache;
     }
 
 }
