@@ -6,15 +6,19 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 public class RiotAPIHandler {
-    private final String apiKey;
+    private String apiKey;
     private final HashMap<Type, IRiotAPIModule> typeMap;
     private final HashMap<String, HashMap<Type, Object>> staticCache;
 
-    public RiotAPIHandler(String apiKey, HashMap<Type, IRiotAPIModule> typeMap,
+    public RiotAPIHandler(HashMap<Type, IRiotAPIModule> typeMap,
             HashMap<String, HashMap<Type, Object>> staticCache) {
-        this.apiKey = apiKey;
+        this.apiKey = null;
         this.typeMap = typeMap;
         this.staticCache = staticCache;
+    }
+    
+    public synchronized void setAPIKey(String apiKey){
+        this.apiKey = apiKey;
     }
 
     public synchronized boolean linkModule(Type type, IRiotAPIModule mod) {

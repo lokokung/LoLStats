@@ -41,8 +41,16 @@ public class ImagePackagingUtil {
     public ImagePackagingUtil(RiotAPIHandler riot,
             HashMap<Type, HashMap<String, ImageView>> imgViewCache) {
         this.riot = riot;
+        
         // Make sure to initiate imgViewCache with the three relevant types.
         this.imgViewCache = imgViewCache;
+        
+        HashMap<String, ImageView> champViewCache = new HashMap<String, ImageView>();
+        HashMap<String, ImageView> spellViewCache = new HashMap<String, ImageView>();
+        HashMap<String, ImageView> itemViewCache = new HashMap<String, ImageView>();
+        this.imgViewCache.put(champT, champViewCache);
+        this.imgViewCache.put(spellT, spellViewCache);
+        this.imgViewCache.put(itemT, itemViewCache); 
     }
 
     public ArrayList<ImageBlock> getSingleMatchListImagePackage(
