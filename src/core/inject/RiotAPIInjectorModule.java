@@ -1,4 +1,4 @@
-package core;
+package core.inject;
 
 import gui.GuiFactory;
 import gui.imageprocessing.ImagePackagingUtil;
@@ -42,7 +42,7 @@ import com.google.inject.Singleton;
 
 import core.matchdata.MatchDataFactory;
 
-public class LoLStatsInjectorModule extends AbstractModule {
+public class RiotAPIInjectorModule extends AbstractModule {
 
     @Override
     protected void configure() {
@@ -57,45 +57,6 @@ public class LoLStatsInjectorModule extends AbstractModule {
         bind(RiotAPISummonerModule.class).asEagerSingleton();
         bind(RiotAPIStaticModule.class).asEagerSingleton();
         bind(RiotAPIImageModule.class).asEagerSingleton();
-        
-        // GUI and image classes.
-        bind(ImagePackagingUtil.class).asEagerSingleton();
-        bind(GuiFactory.class).asEagerSingleton();
-    }
-    
-    // HashMap singletons instantiation.
-    @Provides
-    @Singleton
-    HashMap<Type, IRiotAPIModule> provideTypeMap() {
-        return new HashMap<Type, IRiotAPIModule>();
-    }
-    @Provides
-    @Singleton
-    HashMap<String, HashMap<Type, Object>> provideStaticCache() {
-        return new HashMap<String, HashMap<Type, Object>>();
-    }
-    @Provides
-    @Singleton
-    HashMap<Type, HashMap<String, Object>> provideImgCache(){
-        return new HashMap<Type, HashMap<String, Object>>();
-    }
-    @Provides
-    @Singleton
-    HashMap<Type, HashMap<String, ImageView>> provideImgViewCache(
-            TypeToken<ChampionImage> champImg, 
-            TypeToken<ItemImage> itemImg,
-            TypeToken<SpellImage> spellImg) {
-        HashMap<Type, HashMap<String, ImageView>> imgViewCache =
-                new HashMap<Type, HashMap<String, ImageView>>();
-        
-        HashMap<String, ImageView> champViewCache = new HashMap<String, ImageView>();
-        HashMap<String, ImageView> spellViewCache = new HashMap<String, ImageView>();
-        HashMap<String, ImageView> itemViewCache = new HashMap<String, ImageView>();
-        imgViewCache.put(champImg.getType(), champViewCache);
-        imgViewCache.put(itemImg.getType(), spellViewCache);
-        imgViewCache.put(spellImg.getType(), itemViewCache);
-        
-        return imgViewCache;
     }
     
     // Helping Utilities
@@ -104,68 +65,6 @@ public class LoLStatsInjectorModule extends AbstractModule {
     Gson provideGson(){
         GsonBuilder gsonBuilder = new GsonBuilder();
         return gsonBuilder.serializeNulls().create();
-    }
-    
-    // Type singletons instantiation.
-    @Provides
-    @Singleton
-    TypeToken<RecentGamesDto> provideRecentGameDtoType() {
-        return new TypeToken<RecentGamesDto>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<MatchDetail> provideMatchDetailType() {
-        return new TypeToken<MatchDetail>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<PlayerHistory> providePlayerHistoryType() {
-        return new TypeToken<PlayerHistory>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<HashMap<String, SummonerDto>> provideSummonerMapType() {
-        return new TypeToken<HashMap<String, SummonerDto>>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<ChampionListDto> provideChampionListDtoType() {
-        return new TypeToken<ChampionListDto>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<ItemListDto> provideItemListDtoType() {
-        return new TypeToken<ItemListDto>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<SummonerSpellListDto> provideSummonerSpellListDtoType() {
-        return new TypeToken<SummonerSpellListDto>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<RealmDto> provideRealmDtoType() {
-        return new TypeToken<RealmDto>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<ChampionImage> provideChampionImageType() {
-        return new TypeToken<ChampionImage>(){};
-    } 
-    @Provides
-    @Singleton
-    TypeToken<ItemImage> provideItemImageType() {
-        return new TypeToken<ItemImage>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<MapImage> provideMapImageType() {
-        return new TypeToken<MapImage>(){};
-    }
-    @Provides
-    @Singleton
-    TypeToken<SpellImage> provideSpellImageType() {
-        return new TypeToken<SpellImage>(){};
     }
     
     @Provides
@@ -216,19 +115,5 @@ public class LoLStatsInjectorModule extends AbstractModule {
         riot.linkModule(spellImg.getType(), imageMod);
 
         return riot;
-    }
-    
-    @Provides
-    RealmDto provideRealmDto(RiotAPIHandler riot, 
-                             RiotAPIImageModule imageMod,
-                             TypeToken<RealmDto> realmDto
-                             ){
-        try {
-            RealmDto realm = riot.getAPIObject(realmDto.getType(), true, "na");
-            imageMod.setRealm(realm);
-            return realm;
-        } catch (Exception e) {
-            return null;
-        }
     }
 }
