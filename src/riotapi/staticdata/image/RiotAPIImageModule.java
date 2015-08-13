@@ -2,7 +2,6 @@ package riotapi.staticdata.image;
 
 import java.io.InputStream;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import javafx.scene.image.Image;

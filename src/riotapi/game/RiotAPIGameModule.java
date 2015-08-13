@@ -1,7 +1,6 @@
 package riotapi.game;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import riotapi.core.IRiotAPIModule;

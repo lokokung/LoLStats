@@ -19,16 +19,16 @@ public class RiotAPIStaticModule implements IRiotAPIModule {
     private final String riotAPIStatic_version = "1.2";
     private final String riotAPIStatic_champions =
             "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
-                    + "champion?dataById=true&api_key=%3$s";
+                    + "champion?dataById=true&champData=image&api_key=%3$s";
     private final String riotAPIStatic_items =
             "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
-                    + "item?&api_key=%3$s";
+                    + "item?itemListData=image&api_key=%3$s";
     private final String riotAPIStatic_map =
             "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
                     + "map?&api_key=%3$s";
     private final String riotAPIStatic_summonerspells =
             "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
-                    + "summoner-spell?dataById=true&api_key=%3$s";
+                    + "summoner-spell?dataById=true&spellData=image&api_key=%3$s";
     private final String riotAPIStatic_versionList =
             "https://%2$s.api.pvp.net/api/lol/static-data/%2$s/v%1$s/"
                     + "versions?&api_key=%3$s";

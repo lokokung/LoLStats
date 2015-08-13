@@ -4,47 +4,37 @@ import java.util.ArrayList;
 
 import riotapi.match.MatchDetail;
 import riotapi.match.Participant;
-import riotapi.match.ParticipantIdentity;
 import riotapi.match.ParticipantStats;
-import riotapi.match.Player;
 
 public class MatchDataFactory {
 
-    public MatchData buildMatchData(MatchDetail detail, long summonerId,
-            String role, int matchUp) {
+    public MatchData buildMatchData(MatchDetail detail, int championId,
+            int teamId, String role, int matchUp) {
         MatchData data = new MatchData();
         data.setMatchDetail(detail);
-        data.setSummonerId(summonerId);
+        data.setChampionId(championId);
+        data.setTeamId(teamId);
         data.setRole(role);
         data.setChampionMatchedUpId(matchUp);
         return data;
     }
 
-    public MatchDataList buildMatchDataList(MatchData data) {
+    public MatchDataList buildMatchDataList(MatchData data, String summonerName) {
         MatchDataList list = new MatchDataList();
         MatchDetail detail = data.getMatchDetail();
-        long summonerId = data.getSummonerId();
-
-        ArrayList<ParticipantIdentity> ids = detail.get_participantIdentities();
-        int participantId = -1;
-        Player player = null;
-        for (ParticipantIdentity id : ids) {
-            Player thisPlayer = id.get_player();
-            if (summonerId == thisPlayer.get_summonerId()) {
-                participantId = id.get_participantId();
-                player = thisPlayer;
-            }
-        }
+        int championId = data.getChampionId();
+        int teamId = data.getTeamId();
 
         ArrayList<Participant> participants = detail.get_participants();
         Participant p = null;
         for (Participant thisP : participants) {
-            if (thisP.get_participantId() == participantId)
+            if (thisP.get_championId() == championId
+                    && thisP.get_teamId() == teamId)
                 p = thisP;
         }
         ParticipantStats stats = p.get_stats();
 
-        list.set_summonerName(player.get_summonerName());
+        list.set_summonerName(summonerName);
 
         list.set_mapId(detail.get_mapId());
         list.set_matchCreation(detail.get_matchCreation());
@@ -78,5 +68,4 @@ public class MatchDataFactory {
 
         return list;
     }
-
 }

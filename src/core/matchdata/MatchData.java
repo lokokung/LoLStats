@@ -4,7 +4,8 @@ import riotapi.match.MatchDetail;
 
 public class MatchData {
     private MatchDetail matchDetail;
-    private long summonerId;
+    private int championId;
+    private int teamId;
     private String role;
     private int championMatchedUpId;
 
@@ -16,12 +17,20 @@ public class MatchData {
         this.matchDetail = matchDetail;
     }
 
-    public long getSummonerId() {
-        return summonerId;
+    public int getChampionId() {
+        return championId;
     }
 
-    public void setSummonerId(long summonerId) {
-        this.summonerId = summonerId;
+    public void setChampionId(int championId) {
+        this.championId = championId;
+    }
+
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
     public String getRole() {
