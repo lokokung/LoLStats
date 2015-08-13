@@ -10,6 +10,7 @@ import riotapi.staticdata.realm.RealmDto;
 import util.URLHandler;
 
 import com.google.gson.reflect.TypeToken;
+import com.google.inject.Inject;
 
 public class RiotAPIImageModule implements IRiotAPIModule {
     private final String riotAPIImage_champion = "/img/champion/";
@@ -26,6 +27,7 @@ public class RiotAPIImageModule implements IRiotAPIModule {
     private String version;
     private String cdnUrl;
 
+    @Inject
     public RiotAPIImageModule(URLHandler urlHandler,
             HashMap<Type, HashMap<String, Object>> imgCache) {
         this.urlHandler = urlHandler;

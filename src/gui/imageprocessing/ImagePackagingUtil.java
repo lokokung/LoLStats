@@ -18,39 +18,38 @@ import riotapi.staticdata.summonerspell.SummonerSpellDto;
 import riotapi.staticdata.summonerspell.SummonerSpellListDto;
 
 import com.google.gson.reflect.TypeToken;
+import com.google.inject.Inject;
 
 import core.matchdata.MatchDataList;
 
 public class ImagePackagingUtil {
     private final RiotAPIHandler riot;
     private final HashMap<Type, HashMap<String, ImageView>> imgViewCache;
+    private final Type champT;
+    private final Type itemT;
+    private final Type spellT;
+    private final Type champListT;
+    private final Type spellListT;
+    private final Type itemListT;
 
-    private final Type champT = new TypeToken<ChampionImage>() {
-    }.getType();
-    private final Type itemT = new TypeToken<ItemImage>() {
-    }.getType();
-    private final Type spellT = new TypeToken<SpellImage>() {
-    }.getType();
-    private final Type champListDto = new TypeToken<ChampionListDto>() {
-    }.getType();
-    private final Type spellListDto = new TypeToken<SummonerSpellListDto>() {
-    }.getType();
-    private final Type itemListDto = new TypeToken<ItemListDto>() {
-    }.getType();
-
-    public ImagePackagingUtil(RiotAPIHandler riot,
-            HashMap<Type, HashMap<String, ImageView>> imgViewCache) {
+    @Inject
+    public ImagePackagingUtil(
+            RiotAPIHandler riot,
+            HashMap<Type, HashMap<String, ImageView>> imgViewCache,
+            TypeToken<ChampionImage> champImgT,
+            TypeToken<ItemImage> itemImgT,
+            TypeToken<SpellImage> spellImgT,
+            TypeToken<ChampionListDto> champListDto,
+            TypeToken<ItemListDto> itemListDto,
+            TypeToken<SummonerSpellListDto> spellListDto) {
         this.riot = riot;
-        
-        // Make sure to initiate imgViewCache with the three relevant types.
         this.imgViewCache = imgViewCache;
-        
-        HashMap<String, ImageView> champViewCache = new HashMap<String, ImageView>();
-        HashMap<String, ImageView> spellViewCache = new HashMap<String, ImageView>();
-        HashMap<String, ImageView> itemViewCache = new HashMap<String, ImageView>();
-        this.imgViewCache.put(champT, champViewCache);
-        this.imgViewCache.put(spellT, spellViewCache);
-        this.imgViewCache.put(itemT, itemViewCache); 
+        this.champT = champImgT.getType();
+        this.itemT = itemImgT.getType();
+        this.spellT = spellImgT.getType();
+        this.champListT = champListDto.getType();
+        this.spellListT = spellListDto.getType();
+        this.itemListT = itemListDto.getType();
     }
 
     public ArrayList<ImageBlock> getSingleMatchListImagePackage(
@@ -60,10 +59,10 @@ public class ImagePackagingUtil {
         String region = data.get_region();
 
         ChampionListDto champList =
-                riot.getAPIObject(champListDto, true, region);
+                riot.getAPIObject(champListT, true, region);
         SummonerSpellListDto spellList =
-                riot.getAPIObject(spellListDto, true, region);
-        ItemListDto itemList = riot.getAPIObject(itemListDto, true, region);
+                riot.getAPIObject(spellListT, true, region);
+        ItemListDto itemList = riot.getAPIObject(itemListT, true, region);
 
         HashMap<String, ChampionDto> champMap = champList.get_data();
         HashMap<String, SummonerSpellDto> spellMap = spellList.get_data();

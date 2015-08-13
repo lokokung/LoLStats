@@ -17,20 +17,27 @@ import riotapi.exceptions.RateLimitException;
 import riotapi.exceptions.UnauthorizedException;
 import riotapi.exceptions.UnavailableException;
 
+import com.google.inject.Inject;
+
 public class URLHandler {
     private final int timeout = 1500;
+    
+    @Inject
+    public URLHandler(){
+    }
 
     public void handleExceptions(int code, HttpURLConnection conn)
             throws BadRequestException, UnauthorizedException,
             RateLimitException, InternalServerException, UnavailableException,
             DataNotFoundException {
-        if (code == 400)
+        switch(code){
+        case 400:
             throw new BadRequestException();
-        if (code == 401)
-            throw new UnauthorizedException();
-        if (code == 404)
+        case 401:
+            throw new BadRequestException();
+        case 404:
             throw new DataNotFoundException();
-        if (code == 429) {
+        case 429:
             String waitTimeString = conn.getHeaderField("Retry-After");
             int waitTime = 0;
             try {
@@ -42,11 +49,12 @@ public class URLHandler {
                 Thread.sleep(waitTime);
             } catch (Exception e) {
             }
-        }
-        if (code == 500)
+            break;
+        case 500:
             throw new InternalServerException();
-        if (code == 503)
+        case 503:
             throw new UnavailableException();
+        }
     }
 
     public InputStream requestGetInputStream(String url) throws Exception {

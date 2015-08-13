@@ -17,12 +17,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import riotapi.core.RiotConstantMaps;
+
+import com.google.inject.Inject;
+
 import core.matchdata.MatchDataList;
 
 public class GuiFactory {
     private final ImagePackagingUtil ipu;
     private final RiotConstantMaps rcm;
 
+    @Inject
     public GuiFactory(ImagePackagingUtil ipu, RiotConstantMaps rcm) {
         this.ipu = ipu;
         this.rcm = rcm;

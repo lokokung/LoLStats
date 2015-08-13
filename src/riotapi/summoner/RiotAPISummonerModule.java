@@ -8,6 +8,7 @@ import util.URLHandler;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.google.inject.Inject;
 
 public class RiotAPISummonerModule implements IRiotAPIModule {
     private final String riotAPISummoner_version = "1.4";
@@ -19,6 +20,7 @@ public class RiotAPISummonerModule implements IRiotAPIModule {
     private final URLHandler urlHandler;
     private final HashMap<Type, String> type_map;
 
+    @Inject
     public RiotAPISummonerModule(Gson gson, URLHandler urlHandler) {
         this.gson = gson;
         this.urlHandler = urlHandler;

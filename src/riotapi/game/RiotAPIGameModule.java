@@ -8,6 +8,7 @@ import util.URLHandler;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.google.inject.Inject;
 
 public class RiotAPIGameModule implements IRiotAPIModule {
     private final String riotAPIGame_version = "1.3";
@@ -19,6 +20,7 @@ public class RiotAPIGameModule implements IRiotAPIModule {
     private final URLHandler urlHandler;
     private final HashMap<Type, String> type_map;
 
+    @Inject
     public RiotAPIGameModule(Gson gson, URLHandler urlHandler) {
         this.gson = gson;
         this.urlHandler = urlHandler;

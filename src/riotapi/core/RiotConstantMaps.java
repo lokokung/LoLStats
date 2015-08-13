@@ -2,10 +2,13 @@ package riotapi.core;
 
 import java.util.HashMap;
 
+import com.google.inject.Inject;
+
 public class RiotConstantMaps {
     private final HashMap<String, String> matchTypeMap;
     private final HashMap<Integer, String> mapMap;
 
+    @Inject
     public RiotConstantMaps() {
         this.matchTypeMap = new HashMap<String, String>();
         this.mapMap = new HashMap<Integer, String>();
