@@ -1,0 +1,69 @@
+#matchlistitem-champ-stack{
+    -fx-padding: 0 0 0 0; 
+    -fx-alignment: bottom-right;
+}
+
+#matchlistitem-champ-lvl{
+    -fx-font: 18px Calibri;
+    -fx-font-weight: bolder;
+    -fx-fill: rgba(255,255,255,1);
+}
+
+#matchlistitem-stat-title{
+    -fx-font: 14px Calibri;
+    -fx-text-alignment: right;
+    -fx-fill: rgba(255,255,255,1);
+}
+
+#matchlistitem-stat{
+    -fx-font: 14px Calibri;
+    -fx-font-weight: 900;
+    -fx-text-alignment: left;
+    -fx-fill: rgba(255,255,255,1);
+}
+
+#matchlistitem-tooltip-name{
+    -fx-font: 18px Calibri;
+    -fx-fill: rgba(255,255,255,1);
+}
+
+#matchlistitem-tooltip-text{
+    -fx-font: 12px Calibri;
+    -fx-fill: rgba(0,100,255,1);
+}
+
+#matchlistitem-tooltip-vbox{
+    -fx-spacing: 2px;
+}
+
+.matchlistitem-centerpiece-win{
+    -fx-background-color: rgba(0,215,90,0.75);
+    -fx-background-radius: 10px;
+    -fx-alignment: center;
+}
+
+.matchlistitem-centerpiece-lose{
+    -fx-background-color: rgba(255,77,77,0.75);
+    -fx-background-radius: 10px;
+    -fx-alignment: center;
+}
+
+.matchlistitem-centerpiece-child{
+    -fx-padding: 7 5 5 5;
+}
+
+.matchlistitem-centerpiece-images{
+    -fx-padding: 5 5 5 5;
+}
+
+.matchlistitem-light-spacing{
+    -fx-spacing: 1;
+}
+
+.matchlistitem-heavy-spacing{
+    -fx-spacing: 5;
+}
+
+.tooltip{
+    fx-wrap-text: true;
+}

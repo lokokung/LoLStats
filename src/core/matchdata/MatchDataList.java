@@ -1,6 +1,7 @@
 package core.matchdata;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MatchDataList {
     private int championId;
@@ -16,7 +17,7 @@ public class MatchDataList {
     private long champLevel;
     private long deaths;
     private long goldEarned;
-    private ArrayList<Long> items;
+    private List<Long> items;
     private long kills;
     private long minionsKilled;
     private boolean winner;
@@ -127,7 +128,7 @@ public class MatchDataList {
         this.goldEarned = goldEarned;
     }
 
-    public ArrayList<Long> get_items() {
+    public List<Long> get_items() {
         return items;
     }
 

@@ -1,10 +1,14 @@
 package core.inject;
 
+import gui.tooltips.GUITooltip;
+
 import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import riotapi.core.IRiotAPIModule;
 import riotapi.staticdata.champion.ChampionListDto;
 import riotapi.staticdata.image.ChampionImage;
@@ -19,6 +23,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 
+import core.matchdata.MatchDataList;
+
 public class MapsInjectorModule extends AbstractModule {
 
     @Override
@@ -27,31 +33,31 @@ public class MapsInjectorModule extends AbstractModule {
 
     @Provides
     @Singleton
-    HashMap<Type, IRiotAPIModule> provideTypeMap() {
-        return new HashMap<Type, IRiotAPIModule>();
+    Map<Type, IRiotAPIModule> provideTypeMap() {
+        return new ConcurrentHashMap<Type, IRiotAPIModule>();
     }
 
     @Provides
     @Singleton
-    HashMap<String, HashMap<Type, Object>> provideStaticCache() {
-        return new HashMap<String, HashMap<Type, Object>>();
+    Map<String, Map<Type, Object>> provideStaticCache() {
+        return new ConcurrentHashMap<String, Map<Type, Object>>();
     }
 
     @Provides
     @Singleton
-    HashMap<Type, HashMap<String, Object>> provideImgCache(
+    Map<Type, Map<String, Object>> provideImgCache(
             TypeToken<ChampionImage> champImg, 
             TypeToken<ItemImage> itemImg,
             TypeToken<SpellImage> spellImg, 
             TypeToken<MapImage> mapImg) {
         
-        HashMap<Type, HashMap<String, Object>> imgCache =
-                new HashMap<Type, HashMap<String, Object>>();
+        ConcurrentHashMap<Type, Map<String, Object>> imgCache =
+                new ConcurrentHashMap<Type, Map<String, Object>>();
 
-        HashMap<String, Object> champCache = new HashMap<String, Object>();
-        HashMap<String, Object> itemCache = new HashMap<String, Object>();
-        HashMap<String, Object> spellCache = new HashMap<String, Object>();
-        HashMap<String, Object> mapCache = new HashMap<String, Object>();
+        Map<String, Object> champCache = new ConcurrentHashMap<String, Object>();
+        Map<String, Object> itemCache = new ConcurrentHashMap<String, Object>();
+        Map<String, Object> spellCache = new ConcurrentHashMap<String, Object>();
+        Map<String, Object> mapCache = new ConcurrentHashMap<String, Object>();
         
         imgCache.put(champImg.getType(), champCache);
         imgCache.put(itemImg.getType(), itemCache);
@@ -63,20 +69,20 @@ public class MapsInjectorModule extends AbstractModule {
 
     @Provides
     @Singleton
-    HashMap<Type, HashMap<String, ImageView>> provideImgViewCache(
+    Map<Type, Map<String, ImageView>> provideImgViewCache(
             TypeToken<ChampionImage> champImg, 
             TypeToken<ItemImage> itemImg,
             TypeToken<SpellImage> spellImg) {
         
-        HashMap<Type, HashMap<String, ImageView>> imgViewCache =
-                new HashMap<Type, HashMap<String, ImageView>>();
+        ConcurrentHashMap<Type, Map<String, ImageView>> imgViewCache =
+                new ConcurrentHashMap<Type, Map<String, ImageView>>();
 
-        HashMap<String, ImageView> champViewCache =
-                new HashMap<String, ImageView>();
-        HashMap<String, ImageView> spellViewCache =
-                new HashMap<String, ImageView>();
-        HashMap<String, ImageView> itemViewCache =
-                new HashMap<String, ImageView>();
+        ConcurrentHashMap<String, ImageView> champViewCache =
+                new ConcurrentHashMap<String, ImageView>();
+        ConcurrentHashMap<String, ImageView> spellViewCache =
+                new ConcurrentHashMap<String, ImageView>();
+        ConcurrentHashMap<String, ImageView> itemViewCache =
+                new ConcurrentHashMap<String, ImageView>();
         imgViewCache.put(champImg.getType(), champViewCache);
         imgViewCache.put(itemImg.getType(), spellViewCache);
         imgViewCache.put(spellImg.getType(), itemViewCache);
@@ -86,22 +92,34 @@ public class MapsInjectorModule extends AbstractModule {
     
     @Provides
     @Singleton
-    HashMap<Type, HashMap<String, Tooltip>> provideTooltipCache(
+    Map<Type, Map<String, Tooltip>> provideTooltipCache(
             TypeToken<ChampionListDto> champListDto,
             TypeToken<ItemListDto> itemListDto,
             TypeToken<SummonerSpellListDto> spellListDto){
         
-        HashMap<Type, HashMap<String, Tooltip>> tooltipCache = 
-                new HashMap<Type, HashMap<String, Tooltip>>();
+        ConcurrentHashMap<Type, Map<String, Tooltip>> tooltipCache = 
+                new ConcurrentHashMap<Type, Map<String, Tooltip>>();
         
-        HashMap<String, Tooltip> champTooltipCache = new HashMap<String, Tooltip>();
-        HashMap<String, Tooltip> itemTooltipCache = new HashMap<String, Tooltip>();
-        HashMap<String, Tooltip> spellTooltipCache = new HashMap<String, Tooltip>();
+        ConcurrentHashMap<String, Tooltip> champTooltipCache = new ConcurrentHashMap<String, Tooltip>();
+        ConcurrentHashMap<String, Tooltip> itemTooltipCache = new ConcurrentHashMap<String, Tooltip>();
+        ConcurrentHashMap<String, Tooltip> spellTooltipCache = new ConcurrentHashMap<String, Tooltip>();
         tooltipCache.put(champListDto.getType(), champTooltipCache);
         tooltipCache.put(itemListDto.getType(), itemTooltipCache);
         tooltipCache.put(spellListDto.getType(), spellTooltipCache);
         
         return tooltipCache;
+    }
+    
+    @Provides
+    @Singleton
+    Map<String, GUITooltip> provideNewTooltipCache(){
+        return new ConcurrentHashMap<String, GUITooltip>();
+    }
+    
+    @Provides
+    @Singleton
+    Map<MatchDataList, Pane> provideMatchListItems(){
+        return new ConcurrentHashMap<MatchDataList, Pane>();
     }
 
 }

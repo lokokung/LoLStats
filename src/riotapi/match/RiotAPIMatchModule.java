@@ -1,7 +1,7 @@
 package riotapi.match;
 
 import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import riotapi.core.IRiotAPIModule;
 import util.URLHandler;
@@ -21,14 +21,14 @@ public class RiotAPIMatchModule implements IRiotAPIModule {
 
     private final Gson gson;
     private final URLHandler urlHandler;
-    private final HashMap<Type, String> type_map;
+    private final ConcurrentHashMap<Type, String> type_map;
 
     @Inject
-    public RiotAPIMatchModule(Gson gson, URLHandler urlHandler) {
+    RiotAPIMatchModule(Gson gson, URLHandler urlHandler) {
         this.gson = gson;
         this.urlHandler = urlHandler;
 
-        this.type_map = new HashMap<Type, String>();
+        this.type_map = new ConcurrentHashMap<Type, String>();
         Type matchDetail = new TypeToken<MatchDetail>() {
         }.getType();
         Type playerHistory = new TypeToken<PlayerHistory>() {

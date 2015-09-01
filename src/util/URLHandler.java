@@ -23,7 +23,7 @@ public class URLHandler {
     private final int timeout = 1500;
     
     @Inject
-    public URLHandler(){
+    URLHandler(){
     }
 
     public void handleExceptions(int code, HttpURLConnection conn)

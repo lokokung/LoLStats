@@ -9,7 +9,7 @@ public class RiotConstantMaps {
     private final HashMap<Integer, String> mapMap;
 
     @Inject
-    public RiotConstantMaps() {
+    RiotConstantMaps() {
         this.matchTypeMap = new HashMap<String, String>();
         this.mapMap = new HashMap<Integer, String>();
 

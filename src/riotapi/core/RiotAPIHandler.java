@@ -2,16 +2,17 @@ package riotapi.core;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class RiotAPIHandler {
+public class RiotAPIHandler implements IAPIHandler{
     private String apiKey;
-    private final HashMap<Type, IRiotAPIModule> typeMap;
-    private final HashMap<String, HashMap<Type, Object>> staticCache;
+    private final Map<Type, IRiotAPIModule> typeMap;
+    private final Map<String, Map<Type, Object>> staticCache;
 
-    public RiotAPIHandler(HashMap<Type, IRiotAPIModule> typeMap,
-            HashMap<String, HashMap<Type, Object>> staticCache) {
+    public RiotAPIHandler(Map<Type, IRiotAPIModule> typeMap,
+            Map<String, Map<Type, Object>> staticCache) {
         this.apiKey = null;
         this.typeMap = typeMap;
         this.staticCache = staticCache;
@@ -37,7 +38,7 @@ public class RiotAPIHandler {
         if (isStatic) {
             String region = args[0].toLowerCase();
             if (staticCache.containsKey(region)) {
-                HashMap<Type, Object> map = staticCache.get(region);
+                Map<Type, Object> map = staticCache.get(region);
                 if (map.containsKey(type)) {
                     return (T) map.get(type);
                 }
@@ -45,7 +46,7 @@ public class RiotAPIHandler {
                 map.put(type, result);
                 return result;
             }
-            HashMap<Type, Object> map = new HashMap<Type, Object>();
+            ConcurrentHashMap<Type, Object> map = new ConcurrentHashMap<Type, Object>();
             result = (T) typeMap.get(type).queryAPI(type, apiKey, args);
             map.put(type, result);
             staticCache.put(region, map);
@@ -57,7 +58,7 @@ public class RiotAPIHandler {
     }
 
     public synchronized void updateStaticObjects() throws Exception {
-        for (Entry<String, HashMap<Type, Object>> regionEntry : staticCache
+        for (Entry<String, Map<Type, Object>> regionEntry : staticCache
                 .entrySet()) {
             for (Entry<Type, Object> entry : regionEntry.getValue().entrySet()) {
                 ArrayList<String> region = new ArrayList<String>();

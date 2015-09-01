@@ -1,0 +1,13 @@
+#tooltip-name{
+    -fx-font: 18px Calibri;
+    -fx-fill: rgba(255,255,255,1);
+}
+
+#tooltip-text{
+    -fx-font: 12px Calibri;
+    -fx-fill: rgba(0,100,255,1);
+}
+
+#tooltip-pane{
+    -fx-spacing: 2px;
+}

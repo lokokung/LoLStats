@@ -4,20 +4,16 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.google.gson.reflect.TypeToken;
-import com.google.inject.Inject;
-
-import javafx.scene.image.ImageView;
 import riotapi.core.RiotAPIHandler;
 import riotapi.staticdata.champion.ChampionDto;
 import riotapi.staticdata.champion.ChampionListDto;
-import riotapi.staticdata.image.ChampionImage;
-import riotapi.staticdata.image.ItemImage;
-import riotapi.staticdata.image.SpellImage;
 import riotapi.staticdata.item.ItemDto;
 import riotapi.staticdata.item.ItemListDto;
 import riotapi.staticdata.summonerspell.SummonerSpellDto;
 import riotapi.staticdata.summonerspell.SummonerSpellListDto;
+
+import com.google.gson.reflect.TypeToken;
+import com.google.inject.Inject;
 
 public class MatchDataConverter {
     private final RiotAPIHandler riot;

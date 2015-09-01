@@ -2,7 +2,7 @@ package riotapi.staticdata;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import riotapi.core.IRiotAPIModule;
 import riotapi.staticdata.champion.ChampionListDto;
@@ -39,14 +39,14 @@ public class RiotAPIStaticModule implements IRiotAPIModule {
 
     private final Gson gson;
     private final URLHandler urlHandler;
-    private final HashMap<Type, String> type_map;
+    private final ConcurrentHashMap<Type, String> type_map;
 
     @Inject
-    public RiotAPIStaticModule(Gson gson, URLHandler urlHandler) {
+    RiotAPIStaticModule(Gson gson, URLHandler urlHandler) {
         this.gson = gson;
         this.urlHandler = urlHandler;
 
-        this.type_map = new HashMap<Type, String>();
+        this.type_map = new ConcurrentHashMap<Type, String>();
 
         Type champListDto = new TypeToken<ChampionListDto>() {
         }.getType();

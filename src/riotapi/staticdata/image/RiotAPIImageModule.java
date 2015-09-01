@@ -2,7 +2,8 @@ package riotapi.staticdata.image;
 
 import java.io.InputStream;
 import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javafx.scene.image.Image;
 import riotapi.core.IRiotAPIModule;
@@ -18,25 +19,25 @@ public class RiotAPIImageModule implements IRiotAPIModule {
     private final String riotAPIImage_spell = "/img/spell/";
     private final String riotAPIImage_map = "/img/map/";
 
-    private final HashMap<Type, HashMap<String, Object>> imgCache;
+    private final Map<Type, Map<String, Object>> imgCache;
 
     private final URLHandler urlHandler;
-    private final HashMap<Type, String> type_map;
+    private final ConcurrentHashMap<Type, String> type_map;
 
     private RealmDto realm;
     private String version;
     private String cdnUrl;
 
     @Inject
-    public RiotAPIImageModule(URLHandler urlHandler,
-            HashMap<Type, HashMap<String, Object>> imgCache) {
+    RiotAPIImageModule(URLHandler urlHandler,
+            Map<Type, Map<String, Object>> imgCache) {
         this.urlHandler = urlHandler;
         this.imgCache = imgCache;
         this.realm = null;
         this.version = null;
         this.cdnUrl = null;
 
-        this.type_map = new HashMap<Type, String>();
+        this.type_map = new ConcurrentHashMap<Type, String>();
 
         Type champImg = new TypeToken<ChampionImage>() {
         }.getType();
@@ -60,7 +61,7 @@ public class RiotAPIImageModule implements IRiotAPIModule {
             String new_cdnUrl = realm.get_cdn();
             if (!new_version.equals(this.version)
                 || !new_cdnUrl.equals(this.cdnUrl)) {
-                for(HashMap<String, Object> inner_map : imgCache.values()){
+                for(Map<String, Object> inner_map : imgCache.values()){
                     inner_map.clear();
                 }
             }
@@ -82,7 +83,7 @@ public class RiotAPIImageModule implements IRiotAPIModule {
                            this.cdnUrl + this.version + type_map.get(objType)
                                    + imgName;
 
-            HashMap<String, Object> map = imgCache.get(objType);
+            Map<String, Object> map = imgCache.get(objType);
             Object img = map.get(imgName);
             if (img == null) {
                 InputStream imageStream =urlHandler.requestGetInputStream(query);

@@ -1,16 +1,14 @@
 package core.inject;
 
-import gui.GuiFactory;
-import gui.imageprocessing.ImagePackagingUtil;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.Map;
 
-import javafx.scene.image.ImageView;
+import riotapi.core.IAPIHandler;
 import riotapi.core.IRiotAPIModule;
 import riotapi.core.RiotAPIHandler;
 import riotapi.core.RiotConstantMaps;
@@ -31,6 +29,7 @@ import riotapi.staticdata.realm.RealmDto;
 import riotapi.staticdata.summonerspell.SummonerSpellListDto;
 import riotapi.summoner.RiotAPISummonerModule;
 import riotapi.summoner.SummonerDto;
+import util.DateTimeConverter;
 import util.URLHandler;
 
 import com.google.gson.Gson;
@@ -50,6 +49,7 @@ public class RiotAPIInjectorModule extends AbstractModule {
         bind(URLHandler.class).asEagerSingleton();
         bind(RiotConstantMaps.class).asEagerSingleton();
         bind(MatchDataFactory.class).asEagerSingleton();
+        bind(DateTimeConverter.class).asEagerSingleton();
         
         // Riot API Modules.
         bind(RiotAPIGameModule.class).asEagerSingleton();
@@ -57,6 +57,10 @@ public class RiotAPIInjectorModule extends AbstractModule {
         bind(RiotAPISummonerModule.class).asEagerSingleton();
         bind(RiotAPIStaticModule.class).asEagerSingleton();
         bind(RiotAPIImageModule.class).asEagerSingleton();
+        
+        // Riot API Handler
+        bind(IAPIHandler.class).to(RiotAPIHandler.class).asEagerSingleton();
+        
     }
     
     // Helping Utilities
@@ -70,8 +74,8 @@ public class RiotAPIInjectorModule extends AbstractModule {
     @Provides
     @Singleton
     RiotAPIHandler provideRiotAPIHandler(
-            HashMap<Type, IRiotAPIModule> typeMap,
-            HashMap<String, HashMap<Type, Object>> staticCache,
+            Map<Type, IRiotAPIModule> typeMap,
+            Map<String, Map<Type, Object>> staticCache,
             TypeToken<RecentGamesDto> recentGamesDto,
             TypeToken<MatchDetail> matchDetail,
             TypeToken<PlayerHistory> playerHistory,
@@ -114,6 +118,6 @@ public class RiotAPIInjectorModule extends AbstractModule {
         riot.linkModule(mapImg.getType(), imageMod);
         riot.linkModule(spellImg.getType(), imageMod);
 
-        return riot;
+        return (RiotAPIHandler) riot;
     }
 }

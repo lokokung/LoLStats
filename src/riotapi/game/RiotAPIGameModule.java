@@ -1,7 +1,7 @@
 package riotapi.game;
 
 import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import riotapi.core.IRiotAPIModule;
 import util.URLHandler;
@@ -18,14 +18,14 @@ public class RiotAPIGameModule implements IRiotAPIModule {
 
     private final Gson gson;
     private final URLHandler urlHandler;
-    private final HashMap<Type, String> type_map;
+    private final ConcurrentHashMap<Type, String> type_map;
 
     @Inject
-    public RiotAPIGameModule(Gson gson, URLHandler urlHandler) {
+    RiotAPIGameModule(Gson gson, URLHandler urlHandler) {
         this.gson = gson;
         this.urlHandler = urlHandler;
 
-        this.type_map = new HashMap<Type, String>();
+        this.type_map = new ConcurrentHashMap<Type, String>();
         Type recentGamesDto = new TypeToken<RecentGamesDto>() {
         }.getType();
         this.type_map.put(recentGamesDto, this.riotAPIGame_recent);

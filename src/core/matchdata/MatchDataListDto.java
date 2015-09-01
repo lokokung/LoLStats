@@ -1,6 +1,6 @@
 package core.matchdata;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import riotapi.staticdata.champion.ChampionDto;
 import riotapi.staticdata.item.ItemDto;
@@ -10,13 +10,13 @@ public class MatchDataListDto {
     private final ChampionDto champion;
     private final SummonerSpellDto spell1;
     private final SummonerSpellDto spell2;
-    private final ArrayList<ItemDto> items;
+    private final List<ItemDto> items;
     
     public MatchDataListDto(
             ChampionDto champion, 
             SummonerSpellDto spell1,
             SummonerSpellDto spell2,
-            ArrayList<ItemDto> items){
+            List<ItemDto> items){
         this.champion = champion;
         this.spell1 = spell1;
         this.spell2 = spell2;
@@ -35,7 +35,7 @@ public class MatchDataListDto {
         return spell2;
     }
     
-    public ArrayList<ItemDto> get_items(){
+    public List<ItemDto> get_items(){
         return items;
     }
 }
