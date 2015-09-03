@@ -9,17 +9,18 @@ import riotapi.match.ParticipantStats;
 public class MatchDataFactory {
 
     public MatchData buildMatchData(MatchDetail detail, int championId,
-            int teamId, String role, int matchUp) {
+            int teamId, String role, String summonerName, int matchUp) {
         MatchData data = new MatchData();
         data.setMatchDetail(detail);
         data.setChampionId(championId);
         data.setTeamId(teamId);
         data.setRole(role);
+        data.setSummonerName(summonerName);
         data.setChampionMatchedUpId(matchUp);
         return data;
     }
 
-    public MatchDataList buildMatchDataList(MatchData data, String summonerName) {
+    public MatchDataList buildMatchDataList(MatchData data) {
         MatchDataList list = new MatchDataList();
         MatchDetail detail = data.getMatchDetail();
         int championId = data.getChampionId();
@@ -34,7 +35,7 @@ public class MatchDataFactory {
         }
         ParticipantStats stats = p.get_stats();
 
-        list.set_summonerName(summonerName);
+        list.set_summonerName(data.getSummonerName());
 
         list.set_mapId(detail.get_mapId());
         list.set_matchCreation(detail.get_matchCreation());

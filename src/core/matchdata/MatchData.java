@@ -7,6 +7,7 @@ public class MatchData {
     private int championId;
     private int teamId;
     private String role;
+    private String summonerName;
     private int championMatchedUpId;
 
     public MatchDetail getMatchDetail() {
@@ -39,6 +40,14 @@ public class MatchData {
 
     public void setRole(String role) {
         this.role = role;
+    }
+    
+    public String getSummonerName() {
+        return summonerName;
+    }
+
+    public void setSummonerName(String summonerName) {
+        this.summonerName = summonerName;
     }
 
     public int getChampionMatchedUpId() {

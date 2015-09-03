@@ -63,7 +63,3 @@
 .matchlistitem-heavy-spacing{
     -fx-spacing: 5;
 }
-
-.tooltip{
-    fx-wrap-text: true;
-}

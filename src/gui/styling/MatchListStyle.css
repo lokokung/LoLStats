@@ -1,0 +1,31 @@
+.matchlist{
+    -fx-background-color: transparent;
+    -fx-fill: transparent;
+    -fx-padding: 0 0 0 0;
+    -fx-spacing: 0px;
+}
+
+.matchlist .scroll-bar:vertical{
+    -fx-background-color: rgba(50,50,50,1);
+}
+
+.matchlist .scroll-bar:vertical .increment-button,
+.matchlist .scroll-bar:vertical .increment-arrow,
+.matchlist .scroll-bar:vertical .decrement-button,
+.matchlist .scroll-bar:vertical .decrement-arrow {
+    -fx-padding: 1px;
+    -fx-background-color: rgba(50,50,50,1);
+    -fx-border-color: rgba(50,50,50,1);
+}
+
+.matchlist .scroll-bar:vertical .increment-arrow,
+.matchlist .scroll-bar:vertical .decrement-arrow{
+    -fx-shape: " ";
+}
+
+.matchlist-cell{
+    -fx-background-color: rgba(50,50,50,1);
+    -fx-background-radius: 10px;
+    -fx-padding: -5 1 -5 1;
+    -fx-spacing: 0px;
+}
