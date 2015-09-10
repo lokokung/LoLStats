@@ -158,4 +158,9 @@ public class ChampionDto {
     public void set_title(String title) {
         this.title = title;
     }
+    
+    public boolean equals(Object o){
+        ChampionDto other = (ChampionDto) o;
+        return id == other.get_id();
+    }
 }

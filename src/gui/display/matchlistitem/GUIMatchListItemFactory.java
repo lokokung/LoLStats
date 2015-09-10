@@ -1,6 +1,7 @@
 package gui.display.matchlistitem;
 
 import gui.display.IGUIPane;
+import gui.inject.IGUIMatchFactory;
 import gui.tooltips.GUITooltip;
 import gui.tooltips.GUITooltipFactory;
 
@@ -11,6 +12,8 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import riotapi.core.IAPIHandler;
 import riotapi.core.RiotConstantMaps;
+import riotapi.match.Participant;
+import riotapi.match.ParticipantStats;
 import riotapi.staticdata.champion.ChampionDto;
 import riotapi.staticdata.image.ChampionImage;
 import riotapi.staticdata.image.ItemImage;
@@ -23,11 +26,12 @@ import com.google.gson.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+import core.matchdata.MatchData;
 import core.matchdata.MatchDataConverter;
 import core.matchdata.MatchDataList;
 import core.matchdata.MatchDataListDto;
 
-public class GUIMatchListItemFactory {
+public class GUIMatchListItemFactory implements IGUIMatchFactory<MatchData>{
 
     private final IAPIHandler riot;
     private final GUITooltipFactory tFactory;
@@ -47,6 +51,19 @@ public class GUIMatchListItemFactory {
     private SummonerSpellDto spell1 = null;
     private SummonerSpellDto spell2 = null;
     private List<ItemDto> items = null;
+    
+    private String queueType;
+    private int mapId;
+    private long duration;
+    private long matchCreation;
+    
+    private long champLvl;
+    private long kills;
+    private long deaths;
+    private long assists;
+    private long gold;
+    private long creeps;
+    private boolean win;
 
     @Inject
     GUIMatchListItemFactory(IAPIHandler riot, GUITooltipFactory tFactory,
@@ -70,28 +87,47 @@ public class GUIMatchListItemFactory {
         this.text = text;
     }
 
-    private void setUp() {
+    private void setUp(MatchData data) throws Exception {
         images.clear();
         tooltips.clear();
         text.clear();
 
-        champ = null;
-        spell1 = null;
-        spell2 = null;
-        items = null;
+        MatchDataListDto matchDataList = converter.convertMatchData(data);
+
+        champ = matchDataList.get_champion();
+        spell1 = matchDataList.get_spell1();
+        spell2 = matchDataList.get_spell2();
+        items = matchDataList.get_items();
+        
+        Participant p = matchDataList.get_participant();
+        ParticipantStats stats = p.get_stats();
+        
+        champLvl = stats.get_champLevel();
+        kills = stats.get_kills();
+        deaths = stats.get_deaths();
+        assists = stats.get_assists();
+        gold = stats.get_goldEarned();
+        creeps = stats.get_minionsKilled();
+        win = stats.get_winner();
+        
+        queueType = matchDataList.get_queueType();
+        mapId = matchDataList.get_mapId();
+        duration = matchDataList.get_matchDuration();
+        matchCreation = matchDataList.get_matchCreation();
+        
     }
 
-    private void prepText(MatchDataList data) {
+    private void prepText(MatchData data) {
         // Get champion level.
-        text.add("" + data.get_champLevel());
+        text.add("" + champLvl);
 
         String text1 = "";
         // Get date.
-        String date = datetime.getDate(data.get_matchCreation());
+        String date = datetime.getDate(matchCreation);
         // Get game type.
-        String gameType = rcm.getGameType(data.get_queueType()).toUpperCase();
+        String gameType = rcm.getGameType(queueType).toUpperCase();
         // Get map.
-        String mapText = rcm.getMap(data.get_mapId()).toUpperCase();
+        String mapText = rcm.getMap(mapId).toUpperCase();
         text1 += date + "\n";
         text1 += gameType + "\n";
         text1 += mapText;
@@ -101,24 +137,24 @@ public class GUIMatchListItemFactory {
         text.add(text2);
 
         String text3 = "";
-        text3 += data.get_kills() + "\n";
-        text3 += data.get_deaths() + "\n";
-        text3 += data.get_assists() + "\n";
+        text3 += kills + "\n";
+        text3 += deaths + "\n";
+        text3 += assists + "\n";
         text.add(text3);
 
         String text4 = "GOLD \nCREEP \nDURATION ";
         text.add(text4);
 
         String text5 = "";
-        text5 += data.get_goldEarned() + "\n";
-        text5 += data.get_minionsKilled() + "\n";
-        text5 += datetime.getDuration(data.get_matchDuration());
+        text5 += gold + "\n";
+        text5 += creeps + "\n";
+        text5 += datetime.getDuration(duration);
         text.add(text5);
     }
 
-    private void prepImages(MatchDataList data) throws Exception {
+    private void prepImages(MatchData data) throws Exception {
 
-        MatchDataListDto matchDataList = converter.convertMatchDataList(data);
+        MatchDataListDto matchDataList = converter.convertMatchData(data);
 
         champ = matchDataList.get_champion();
         spell1 = matchDataList.get_spell1();
@@ -151,9 +187,9 @@ public class GUIMatchListItemFactory {
         }
     }
 
-    private void prepTooltips(MatchDataList data) {
+    private void prepTooltips(MatchData data) {
         // Champion tooltip.
-        String champText = champ.get_title() + "\nSummoner: " + data.get_summonerName() + "";
+        String champText = champ.get_title() + "\nSummoner: " + data.getSummonerName() + "";
         GUITooltip champTooltip =
                                   tFactory.get(null, champ.get_name(),
                                           champText);
@@ -191,11 +227,11 @@ public class GUIMatchListItemFactory {
         }
     }
 
-    public IGUIPane get(MatchDataList data) throws Exception {
-        setUp();
+    public IGUIPane get(MatchData data) throws Exception {
+        setUp(data);
 
         IGUIMatchListItemInjectFactory factory = provider.get();
-        IGUIPane pane = factory.create(data.get_matchCreation());
+        IGUIPane pane = factory.create(data);
 
         // Handle text for the panes.
         prepText(data);
@@ -205,7 +241,7 @@ public class GUIMatchListItemFactory {
         prepTooltips(data);
 
         // Set win/loss
-        if (data.get_winner())
+        if (win)
             pane.getStyleClass().add("matchlistitem-centerpiece-win");
         else
             pane.getStyleClass().add("matchlistitem-centerpiece-lose");

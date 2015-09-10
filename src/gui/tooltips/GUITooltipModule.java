@@ -1,7 +1,5 @@
-package gui.inject;
+package gui.tooltips;
 
-import gui.tooltips.GUITooltip;
-import gui.tooltips.GUITooltipFactory;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;

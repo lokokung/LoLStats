@@ -3,6 +3,7 @@ package riotapi.staticdata.item;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import riotapi.staticdata.champion.ChampionDto;
 import riotapi.staticdata.image.ImageDto;
 
 public class ItemDto {
@@ -221,5 +222,10 @@ public class ItemDto {
 
     public void set_tags(ArrayList<String> tags) {
         this.tags = tags;
+    }
+    
+    public boolean equals(Object o){
+        ItemDto other = (ItemDto) o;
+        return id == other.get_id();
     }
 }

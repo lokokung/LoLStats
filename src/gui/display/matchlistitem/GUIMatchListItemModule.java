@@ -1,8 +1,6 @@
-package gui.inject;
+package gui.display.matchlistitem;
 
-import gui.display.matchlistitem.GUIMatchListItem;
-import gui.display.matchlistitem.GUIMatchListItemFactory;
-import gui.display.matchlistitem.IGUIMatchListItemInjectFactory;
+import gui.inject.IGUIMatchFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -19,10 +17,12 @@ public class GUIMatchListItemModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        install(new FactoryModuleBuilder().implement(
-                Pane.class, GUIMatchListItem.class).build(
+        install(new FactoryModuleBuilder().build(
                 IGUIMatchListItemInjectFactory.class));
-        bind(GUIMatchListItemFactory.class).asEagerSingleton();
+        bind(IGUIMatchFactory.class).annotatedWith(
+                GUIMatchListItemAnnot.class)
+                .to(GUIMatchListItemFactory.class)
+                .asEagerSingleton();
     }
 
     @Provides

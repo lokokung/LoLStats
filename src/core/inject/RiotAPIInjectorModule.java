@@ -36,8 +36,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.AbstractModule;
+import com.google.inject.Provider;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 
 import core.matchdata.MatchDataFactory;
 
@@ -63,19 +65,36 @@ public class RiotAPIInjectorModule extends AbstractModule {
         
     }
     
-    // Helping Utilities
     @Provides
     @Singleton
-    Gson provideGson(){
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        return gsonBuilder.serializeNulls().create();
+    @Named("API-Key")
+    String provideAPIKey(){
+        String apiKey = null;
+        try {
+            BufferedReader apiReader =
+                    new BufferedReader(new FileReader("APIKey.txt"));
+            apiKey = apiReader.readLine();
+            apiReader.close();
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+        return apiKey;
+    }
+    
+    @Provides
+    @Named("region")
+    String provideRegion(){
+        return "na";
     }
     
     @Provides
     @Singleton
     RiotAPIHandler provideRiotAPIHandler(
+            @Named("API-Key") String apiKey,
+            @Named("region") String region,
             Map<Type, IRiotAPIModule> typeMap,
             Map<String, Map<Type, Object>> staticCache,
+            Provider<Map<Type, Object>> mapProvider,
             TypeToken<RecentGamesDto> recentGamesDto,
             TypeToken<MatchDetail> matchDetail,
             TypeToken<PlayerHistory> playerHistory,
@@ -93,16 +112,7 @@ public class RiotAPIInjectorModule extends AbstractModule {
             RiotAPISummonerModule summonerMod,
             RiotAPIStaticModule staticMod,
             RiotAPIImageModule imageMod) {
-        RiotAPIHandler riot = new RiotAPIHandler(typeMap, staticCache);
-        String apiKey = null;
-        try {
-            BufferedReader apiReader =
-                    new BufferedReader(new FileReader("APIKey.txt"));
-            apiKey = apiReader.readLine();
-            apiReader.close();
-        } catch (FileNotFoundException e) {
-        } catch (IOException e) {
-        }
+        RiotAPIHandler riot = new RiotAPIHandler(typeMap, staticCache, mapProvider);
         riot.setAPIKey(apiKey);
         
         riot.linkModule(recentGamesDto.getType(), gameMod);
@@ -117,7 +127,16 @@ public class RiotAPIInjectorModule extends AbstractModule {
         riot.linkModule(itemImg.getType(), imageMod);
         riot.linkModule(mapImg.getType(), imageMod);
         riot.linkModule(spellImg.getType(), imageMod);
+        
+        RealmDto realm = null;
+        try {
+            realm = riot.getAPIObject(realmDto.getType(), true, region);
+            riot.getAPIObject(champListDto.getType(), true, region);
+            riot.getAPIObject(itemListDto.getType(), true, region);
+            riot.getAPIObject(spellListDto.getType(), true, region);
+        } catch (Exception e) {}
+        imageMod.setRealm(realm);
 
-        return (RiotAPIHandler) riot;
+        return riot;
     }
 }

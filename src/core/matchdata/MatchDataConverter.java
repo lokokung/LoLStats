@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import riotapi.core.RiotAPIHandler;
+import riotapi.match.MatchDetail;
+import riotapi.match.Participant;
+import riotapi.match.ParticipantStats;
 import riotapi.staticdata.champion.ChampionDto;
 import riotapi.staticdata.champion.ChampionListDto;
 import riotapi.staticdata.item.ItemDto;
@@ -33,8 +36,26 @@ public class MatchDataConverter {
         this.itemListT = itemListDto.getType();
     }
     
-    public MatchDataListDto convertMatchDataList(MatchDataList data) throws Exception{
-        String region = data.get_region();
+    public MatchDataListDto convertMatchData(MatchData matchData) throws Exception{
+        MatchDetail matchDetail = matchData.getMatchDetail();
+        String region = matchDetail.get_region().toLowerCase();
+        
+        String queueType = matchDetail.get_queueType();
+        int mapId = matchDetail.get_mapId();
+        long matchCreation = matchDetail.get_matchCreation();
+        long matchDuration = matchDetail.get_matchDuration();
+        
+        int championId = matchData.getChampionId();
+        int teamId = matchData.getTeamId();
+
+        ArrayList<Participant> participants = matchDetail.get_participants();
+        Participant p = null;
+        for (Participant thisP : participants) {
+            if (thisP.get_championId() == championId
+                    && thisP.get_teamId() == teamId)
+                p = thisP;
+        }
+        ParticipantStats stats = p.get_stats();
 
         ChampionListDto champList =
                 riot.getAPIObject(champListT, true, region);
@@ -46,11 +67,21 @@ public class MatchDataConverter {
         HashMap<String, SummonerSpellDto> spellMap = spellList.get_data();
         HashMap<String, ItemDto> itemMap = itemList.get_data();
 
-        ChampionDto champ = champMap.get("" + data.get_championId());
-        SummonerSpellDto spell1 = spellMap.get("" + data.get_spell1Id());
-        SummonerSpellDto spell2 = spellMap.get("" + data.get_spell2Id());
+        ChampionDto champ = champMap.get("" + championId);
+        SummonerSpellDto spell1 = spellMap.get("" + p.get_spell1Id());
+        SummonerSpellDto spell2 = spellMap.get("" + p.get_spell2Id());
+        
         ArrayList<ItemDto> items = new ArrayList<ItemDto>();
-        for(long item: data.get_items()){
+        ArrayList<Long> itemIds = new ArrayList<Long>();
+        itemIds.add(stats.get_item0());
+        itemIds.add(stats.get_item1());
+        itemIds.add(stats.get_item2());
+        itemIds.add(stats.get_item3());
+        itemIds.add(stats.get_item4());
+        itemIds.add(stats.get_item5());
+        itemIds.add(stats.get_item6());
+        
+        for(long item: itemIds){
             if(item == 0)
                 items.add(null);
             else{
@@ -60,7 +91,7 @@ public class MatchDataConverter {
         }
         
         MatchDataListDto converted = new MatchDataListDto(
-                champ, spell1, spell2, items);
+                champ, spell1, spell2, items, p, queueType, mapId, matchCreation, matchDuration);
         
         return converted;
     }

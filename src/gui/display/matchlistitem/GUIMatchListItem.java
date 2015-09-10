@@ -14,6 +14,8 @@ import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.google.inject.name.Named;
 
+import core.matchdata.MatchData;
+
 public class GUIMatchListItem extends IGUIPane implements
         Comparable<GUIMatchListItem> {
 
@@ -44,7 +46,7 @@ public class GUIMatchListItem extends IGUIPane implements
     private final Text text3;
     private final Text text4;
     private final Text text5;
-    private final long creationDate;
+    private final MatchData data;
 
     @Inject
     GUIMatchListItem(
@@ -75,7 +77,7 @@ public class GUIMatchListItem extends IGUIPane implements
             @Named("matchlistitem-stat") Text text3,
             @Named("matchlistitem-stat-title") Text text4,
             @Named("matchlistitem-stat") Text text5, 
-            @Assisted long creationDate) {
+            @Assisted MatchData data) {
 
         this.champImg = champImg;
         this.spell1Img = spell1Img;
@@ -104,15 +106,15 @@ public class GUIMatchListItem extends IGUIPane implements
         this.text3 = text3;
         this.text4 = text4;
         this.text5 = text5;
-        this.creationDate = creationDate;
+        this.data = data;
         initialize();
     }
 
     @Override
     public int compareTo(GUIMatchListItem o) {
 
-        return Long.valueOf(creationDate).compareTo(
-                Long.valueOf(o.getCreationDate()));
+        return Long.valueOf(data.getMatchDetail().get_matchCreation()).compareTo(
+                Long.valueOf(o.getData().getMatchDetail().get_matchCreation()));
     }
 
     @Override
@@ -200,8 +202,8 @@ public class GUIMatchListItem extends IGUIPane implements
         text5.setText(strings.get(5));
     }
 
-    public long getCreationDate() {
-        return creationDate;
+    public MatchData getData() {
+        return data;
     }
 
 }

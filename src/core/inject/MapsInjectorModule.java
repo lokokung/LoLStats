@@ -42,6 +42,11 @@ public class MapsInjectorModule extends AbstractModule {
     Map<String, Map<Type, Object>> provideStaticCache() {
         return new ConcurrentHashMap<String, Map<Type, Object>>();
     }
+    
+    @Provides
+    Map<Type, Object> provideRegionMap(){
+        return new ConcurrentHashMap<Type, Object>();
+    }
 
     @Provides
     @Singleton

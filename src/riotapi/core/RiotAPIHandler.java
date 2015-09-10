@@ -6,16 +6,22 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.google.inject.Provider;
+
 public class RiotAPIHandler implements IAPIHandler{
     private String apiKey;
     private final Map<Type, IRiotAPIModule> typeMap;
     private final Map<String, Map<Type, Object>> staticCache;
+    private final Provider<Map<Type, Object>> provider;
 
-    public RiotAPIHandler(Map<Type, IRiotAPIModule> typeMap,
-            Map<String, Map<Type, Object>> staticCache) {
+    public RiotAPIHandler(
+            Map<Type, IRiotAPIModule> typeMap,
+            Map<String, Map<Type, Object>> staticCache,
+            Provider<Map<Type, Object>> provider) {
         this.apiKey = null;
         this.typeMap = typeMap;
         this.staticCache = staticCache;
+        this.provider = provider;
     }
     
     public synchronized void setAPIKey(String apiKey){
@@ -61,8 +67,6 @@ public class RiotAPIHandler implements IAPIHandler{
         for (Entry<String, Map<Type, Object>> regionEntry : staticCache
                 .entrySet()) {
             for (Entry<Type, Object> entry : regionEntry.getValue().entrySet()) {
-                ArrayList<String> region = new ArrayList<String>();
-                region.add(regionEntry.getKey());
                 Object obj =
                         getAPIObject(entry.getKey(), false,
                                 regionEntry.getKey());

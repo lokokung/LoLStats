@@ -3,6 +3,7 @@ package riotapi.staticdata.summonerspell;
 import java.util.ArrayList;
 
 import riotapi.staticdata.image.ImageDto;
+import riotapi.staticdata.item.ItemDto;
 import riotapi.staticdata.misc.LevelTipDto;
 
 public class SummonerSpellDto {
@@ -212,5 +213,10 @@ public class SummonerSpellDto {
 
     public void set_vars(ArrayList<SpellVarsDto> vars) {
         this.vars = vars;
+    }
+    
+    public boolean equals(Object o){
+        SummonerSpellDto other = (SummonerSpellDto) o;
+        return id == other.get_id();
     }
 }

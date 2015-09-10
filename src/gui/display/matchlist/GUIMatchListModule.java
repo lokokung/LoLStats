@@ -1,7 +1,6 @@
-package gui.inject;
+package gui.display.matchlist;
 
 import gui.display.IGUIPane;
-import gui.display.matchlist.GUIMatchList;
 import gui.display.matchlistitem.GUIMatchListItemFactory;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -11,6 +10,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provider;
 import com.google.inject.Provides;
 
+import core.matchdata.MatchData;
 import core.matchdata.MatchDataList;
 
 public class GUIMatchListModule extends AbstractModule {
@@ -21,13 +21,13 @@ public class GUIMatchListModule extends AbstractModule {
     }
     
     @Provides
-    Callback<ListView<MatchDataList>, ListCell<MatchDataList>> getCallback(
-            Provider<ListCell<MatchDataList>> provider){
-        Callback<ListView<MatchDataList>, ListCell<MatchDataList>> callback = 
-                new Callback<ListView<MatchDataList>, ListCell<MatchDataList>>() {
+    Callback<ListView<MatchData>, ListCell<MatchData>> getCallback(
+            Provider<ListCell<MatchData>> provider){
+        Callback<ListView<MatchData>, ListCell<MatchData>> callback = 
+                new Callback<ListView<MatchData>, ListCell<MatchData>>() {
                     @Override
-                    public ListCell<MatchDataList> call(
-                            ListView<MatchDataList> arg0) {
+                    public ListCell<MatchData> call(
+                            ListView<MatchData> arg0) {
                                 return provider.get();
                             }
         };
@@ -35,9 +35,9 @@ public class GUIMatchListModule extends AbstractModule {
     }
 
     @Provides
-    ListCell<MatchDataList> getListCell(GUIMatchListItemFactory itemFactory) {
-        ListCell<MatchDataList> cell = new ListCell<MatchDataList>() {
-            protected void updateItem(MatchDataList t, boolean bln) {
+    ListCell<MatchData> getListCell(GUIMatchListItemFactory itemFactory) {
+        ListCell<MatchData> cell = new ListCell<MatchData>() {
+            protected void updateItem(MatchData t, boolean bln) {
                 super.updateItem(t, bln);
                 if (t != null) {
                     IGUIPane pane = null;

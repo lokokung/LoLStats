@@ -7,16 +7,17 @@ import javafx.util.Callback;
 
 import com.google.inject.Inject;
 
+import core.matchdata.MatchData;
 import core.matchdata.MatchDataList;
 
-public class GUIMatchList extends ListView<MatchDataList>{
+public class GUIMatchList extends ListView<MatchData>{
     
-    private final ObservableList<MatchDataList> itemList;
+    private final ObservableList<MatchData> itemList;
     
     @Inject
     GUIMatchList(
-            ObservableList<MatchDataList> itemList,
-            Callback<ListView<MatchDataList>, ListCell<MatchDataList>> callback
+            ObservableList<MatchData> itemList,
+            Callback<ListView<MatchData>, ListCell<MatchData>> callback
             ){
         this.itemList = itemList;
         
@@ -26,7 +27,7 @@ public class GUIMatchList extends ListView<MatchDataList>{
         getStyleClass().add("matchlist");
     }
     
-    public void add(MatchDataList item){
+    public void add(MatchData item){
         itemList.add(item);
     }
 }
