@@ -2,23 +2,26 @@ package riotapi.match;
 
 import java.util.ArrayList;
 
+import parsing.wrappers.ChampionWrapper;
+import parsing.wrappers.SpellWrapper;
+
 public class Participant {
-    private int championId;
+    private ChampionWrapper championId;
     private String highestAchievedSeasonTier;
     private ArrayList<Mastery> masteries;
     private int participantId;
     private ArrayList<Rune> runes;
-    private int spell1Id;
-    private int spell2Id;
+    private SpellWrapper spell1Id;
+    private SpellWrapper spell2Id;
     private ParticipantStats stats;
     private int teamId;
     private ParticipantTimeline timeline;
 
-    public int get_championId() {
+    public ChampionWrapper get_championId() {
         return championId;
     }
 
-    public void set_championId(int championId) {
+    public void set_championId(ChampionWrapper championId) {
         this.championId = championId;
     }
 
@@ -54,19 +57,19 @@ public class Participant {
         this.runes = runes;
     }
 
-    public int get_spell1Id() {
+    public SpellWrapper get_spell1Id() {
         return spell1Id;
     }
 
-    public void set_spell1Id(int spell1Id) {
+    public void set_spell1Id(SpellWrapper spell1Id) {
         this.spell1Id = spell1Id;
     }
 
-    public int get_spell2Id() {
+    public SpellWrapper get_spell2Id() {
         return spell2Id;
     }
 
-    public void set_spell2Id(int spell2Id) {
+    public void set_spell2Id(SpellWrapper spell2Id) {
         this.spell2Id = spell2Id;
     }
 

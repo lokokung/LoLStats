@@ -1,15 +1,17 @@
 package riotapi.game;
 
+import parsing.wrappers.ChampionWrapper;
+
 public class PlayerDto {
-    private int championId;
+    private ChampionWrapper championId;
     private long summonerId;
     private int teamId;
 
-    public int get_championId() {
+    public ChampionWrapper get_championId() {
         return championId;
     }
 
-    public void set_championId(int championId) {
+    public void set_championId(ChampionWrapper championId) {
         this.championId = championId;
     }
 

@@ -1,14 +1,15 @@
 package core.matchdata;
 
+import parsing.wrappers.ChampionWrapper;
 import riotapi.match.MatchDetail;
 
 public class MatchData {
     private MatchDetail matchDetail;
-    private int championId;
+    private ChampionWrapper championId;
     private int teamId;
     private String role;
     private String summonerName;
-    private int championMatchedUpId;
+    private ChampionWrapper championMatchedUpId;
 
     public MatchDetail getMatchDetail() {
         return matchDetail;
@@ -18,11 +19,11 @@ public class MatchData {
         this.matchDetail = matchDetail;
     }
 
-    public int getChampionId() {
+    public ChampionWrapper getChampionId() {
         return championId;
     }
 
-    public void setChampionId(int championId) {
+    public void setChampionId(ChampionWrapper championId) {
         this.championId = championId;
     }
 
@@ -50,11 +51,11 @@ public class MatchData {
         this.summonerName = summonerName;
     }
 
-    public int getChampionMatchedUpId() {
+    public ChampionWrapper getChampionMatchedUpId() {
         return championMatchedUpId;
     }
 
-    public void setChampionMatchedUpId(int championMatchedUpId) {
+    public void setChampionMatchedUpId(ChampionWrapper championMatchedUpId) {
         this.championMatchedUpId = championMatchedUpId;
     }
 }

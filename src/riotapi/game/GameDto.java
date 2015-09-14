@@ -2,8 +2,11 @@ package riotapi.game;
 
 import java.util.ArrayList;
 
+import parsing.wrappers.ChampionWrapper;
+import parsing.wrappers.SpellWrapper;
+
 public class GameDto {
-    private int championId;
+    private ChampionWrapper championId;
     private long createDate;
     private ArrayList<PlayerDto> fellowPlayers;
     private long gameId;
@@ -13,17 +16,17 @@ public class GameDto {
     private int ipEarned;
     private int level;
     private int mapId;
-    private int spell1;
-    private int spell2;
+    private SpellWrapper spell1;
+    private SpellWrapper spell2;
     private RawStatsDto stats;
     private String subType;
     private int teamId;
 
-    public int get_championId() {
+    public ChampionWrapper get_championId() {
         return championId;
     }
 
-    public void set_championId(int championId) {
+    public void set_championId(ChampionWrapper championId) {
         this.championId = championId;
     }
 
@@ -99,19 +102,19 @@ public class GameDto {
         this.mapId = mapId;
     }
 
-    public int get_spell1() {
+    public SpellWrapper get_spell1() {
         return spell1;
     }
 
-    public void set_spell1(int spell1) {
+    public void set_spell1(SpellWrapper spell1) {
         this.spell1 = spell1;
     }
 
-    public int get_spell2() {
+    public SpellWrapper get_spell2() {
         return spell2;
     }
 
-    public void set_spell2(int spell2) {
+    public void set_spell2(SpellWrapper spell2) {
         this.spell2 = spell2;
     }
 

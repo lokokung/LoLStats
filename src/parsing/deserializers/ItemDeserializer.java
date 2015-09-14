@@ -49,7 +49,8 @@ public class ItemDeserializer implements JsonDeserializer<ItemWrapper>{
         HashMap<String, ItemDto> itemMap = itemList.get_data();
         long itemId = Long.parseLong(arg0.getAsString());
         IWrapperFactory factory = provider.get();
-        ItemWrapper wrapper = factory.getItemWrapper(itemMap.get("" + itemId));
+        ItemDto item = itemMap.get("" + itemId);
+        ItemWrapper wrapper = factory.getItemWrapper(item);
         
         return wrapper;
     }

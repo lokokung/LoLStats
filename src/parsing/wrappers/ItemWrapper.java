@@ -1,5 +1,7 @@
 package parsing.wrappers;
 
+import javax.annotation.Nullable;
+
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 
@@ -10,7 +12,7 @@ public class ItemWrapper implements IWrapper<ItemDto>{
     
     @Inject
     ItemWrapper(
-            @Assisted ItemDto item){
+            @Assisted @Nullable ItemDto item){
         this.item = item;
     }
     

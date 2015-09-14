@@ -6,12 +6,14 @@ import gui.tooltips.GUITooltip;
 import gui.tooltips.GUITooltipFactory;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import riotapi.core.IAPIHandler;
 import riotapi.core.RiotConstantMaps;
+import riotapi.match.MatchDetail;
 import riotapi.match.Participant;
 import riotapi.match.ParticipantStats;
 import riotapi.staticdata.champion.ChampionDto;
@@ -27,20 +29,20 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 import core.matchdata.MatchData;
-import core.matchdata.MatchDataConverter;
 import core.matchdata.MatchDataList;
 import core.matchdata.MatchDataListDto;
 
-public class GUIMatchListItemFactory implements IGUIMatchFactory<MatchData>{
+public class GUIMatchListItemFactory implements IGUIMatchFactory<MatchData> {
 
     private final IAPIHandler riot;
     private final GUITooltipFactory tFactory;
-    private final MatchDataConverter converter;
     private final DateTimeConverter datetime;
     private final RiotConstantMaps rcm;
     private final Type champImgT;
     private final Type itemImgT;
     private final Type spellImgT;
+
+    private final List<ItemDto> items;
 
     private final Provider<IGUIMatchListItemInjectFactory> provider;
     private final List<Image> images;
@@ -50,13 +52,12 @@ public class GUIMatchListItemFactory implements IGUIMatchFactory<MatchData>{
     private ChampionDto champ = null;
     private SummonerSpellDto spell1 = null;
     private SummonerSpellDto spell2 = null;
-    private List<ItemDto> items = null;
-    
+
     private String queueType;
     private int mapId;
     private long duration;
     private long matchCreation;
-    
+
     private long champLvl;
     private long kills;
     private long deaths;
@@ -67,19 +68,21 @@ public class GUIMatchListItemFactory implements IGUIMatchFactory<MatchData>{
 
     @Inject
     GUIMatchListItemFactory(IAPIHandler riot, GUITooltipFactory tFactory,
-            MatchDataConverter converter, DateTimeConverter datetime,
-            RiotConstantMaps rcm, TypeToken<ChampionImage> champImgT,
-            TypeToken<ItemImage> itemImgT, TypeToken<SpellImage> spellImgT,
+            DateTimeConverter datetime, RiotConstantMaps rcm,
+            TypeToken<ChampionImage> champImgT, TypeToken<ItemImage> itemImgT,
+            TypeToken<SpellImage> spellImgT,
             Provider<IGUIMatchListItemInjectFactory> provider,
-            List<Image> images, List<Tooltip> tooltips, List<String> text) {
+            List<ItemDto> items, List<Image> images, List<Tooltip> tooltips,
+            List<String> text) {
         this.riot = riot;
         this.tFactory = tFactory;
-        this.converter = converter;
         this.datetime = datetime;
         this.rcm = rcm;
         this.champImgT = champImgT.getType();
         this.itemImgT = itemImgT.getType();
         this.spellImgT = spellImgT.getType();
+
+        this.items = items;
 
         this.provider = provider;
         this.images = images;
@@ -91,17 +94,24 @@ public class GUIMatchListItemFactory implements IGUIMatchFactory<MatchData>{
         images.clear();
         tooltips.clear();
         text.clear();
+        items.clear();
 
-        MatchDataListDto matchDataList = converter.convertMatchData(data);
+        champ = data.getChampionId().get_obj();
+        MatchDetail detail = data.getMatchDetail();
+        ArrayList<Participant> participants = detail.get_participants();
+        Participant p = null;
+        for (Participant current : participants) {
+            if (current.get_championId().get_obj().equals(champ)
+                && current.get_teamId() == data.getTeamId()) {
+                p = current;
+            }
+        }
 
-        champ = matchDataList.get_champion();
-        spell1 = matchDataList.get_spell1();
-        spell2 = matchDataList.get_spell2();
-        items = matchDataList.get_items();
-        
-        Participant p = matchDataList.get_participant();
+        spell1 = p.get_spell1Id().get_obj();
+        spell2 = p.get_spell2Id().get_obj();
+
         ParticipantStats stats = p.get_stats();
-        
+
         champLvl = stats.get_champLevel();
         kills = stats.get_kills();
         deaths = stats.get_deaths();
@@ -109,12 +119,21 @@ public class GUIMatchListItemFactory implements IGUIMatchFactory<MatchData>{
         gold = stats.get_goldEarned();
         creeps = stats.get_minionsKilled();
         win = stats.get_winner();
-        
-        queueType = matchDataList.get_queueType();
-        mapId = matchDataList.get_mapId();
-        duration = matchDataList.get_matchDuration();
-        matchCreation = matchDataList.get_matchCreation();
-        
+
+        // Add each item.
+        items.add(stats.get_item0().get_obj());
+        items.add(stats.get_item1().get_obj());
+        items.add(stats.get_item2().get_obj());
+        items.add(stats.get_item3().get_obj());
+        items.add(stats.get_item4().get_obj());
+        items.add(stats.get_item5().get_obj());
+        items.add(stats.get_item6().get_obj());
+
+        queueType = detail.get_queueType();
+        mapId = detail.get_mapId();
+        duration = detail.get_matchDuration();
+        matchCreation = detail.get_matchCreation();
+
     }
 
     private void prepText(MatchData data) {
@@ -154,13 +173,6 @@ public class GUIMatchListItemFactory implements IGUIMatchFactory<MatchData>{
 
     private void prepImages(MatchData data) throws Exception {
 
-        MatchDataListDto matchDataList = converter.convertMatchData(data);
-
-        champ = matchDataList.get_champion();
-        spell1 = matchDataList.get_spell1();
-        spell2 = matchDataList.get_spell2();
-        items = matchDataList.get_items();
-
         // Champion Image.
         String champImgString = champ.get_image().get_full();
         Image champImg = riot.getAPIObject(champImgT, false, champImgString);
@@ -189,7 +201,9 @@ public class GUIMatchListItemFactory implements IGUIMatchFactory<MatchData>{
 
     private void prepTooltips(MatchData data) {
         // Champion tooltip.
-        String champText = champ.get_title() + "\nSummoner: " + data.getSummonerName() + "";
+        String champText =
+                           champ.get_title() + "\nSummoner: "
+                                   + data.getSummonerName() + "";
         GUITooltip champTooltip =
                                   tFactory.get(null, champ.get_name(),
                                           champText);

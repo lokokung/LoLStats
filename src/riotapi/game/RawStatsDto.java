@@ -1,5 +1,7 @@
 package riotapi.game;
 
+import parsing.wrappers.ItemWrapper;
+
 public class RawStatsDto {
     private int assists;
     private int barracksKilled;
@@ -12,13 +14,13 @@ public class RawStatsDto {
     private int gold;
     private int goldEarned;
     private int goldSpent;
-    private int item0;
-    private int item1;
-    private int item2;
-    private int item3;
-    private int item4;
-    private int item5;
-    private int item6;
+    private ItemWrapper item0;
+    private ItemWrapper item1;
+    private ItemWrapper item2;
+    private ItemWrapper item3;
+    private ItemWrapper item4;
+    private ItemWrapper item5;
+    private ItemWrapper item6;
     private int itemsPurchased;
     private int killingSprees;
     private int largestCriticalStrike;
@@ -168,59 +170,59 @@ public class RawStatsDto {
         this.goldSpent = goldSpent;
     }
 
-    public int get_item0() {
+    public ItemWrapper get_item0() {
         return item0;
     }
 
-    public void set_item0(int item0) {
+    public void set_item0(ItemWrapper item0) {
         this.item0 = item0;
     }
 
-    public int get_item1() {
+    public ItemWrapper get_item1() {
         return item1;
     }
 
-    public void set_item1(int item1) {
+    public void set_item1(ItemWrapper item1) {
         this.item1 = item1;
     }
 
-    public int get_item2() {
+    public ItemWrapper get_item2() {
         return item2;
     }
 
-    public void set_item2(int item2) {
+    public void set_item2(ItemWrapper item2) {
         this.item2 = item2;
     }
 
-    public int get_item3() {
+    public ItemWrapper get_item3() {
         return item3;
     }
 
-    public void set_item3(int item3) {
+    public void set_item3(ItemWrapper item3) {
         this.item3 = item3;
     }
 
-    public int get_item4() {
+    public ItemWrapper get_item4() {
         return item4;
     }
 
-    public void set_item4(int item4) {
+    public void set_item4(ItemWrapper item4) {
         this.item4 = item4;
     }
 
-    public int get_item5() {
+    public ItemWrapper get_item5() {
         return item5;
     }
 
-    public void set_item5(int item5) {
+    public void set_item5(ItemWrapper item5) {
         this.item5 = item5;
     }
 
-    public int get_item6() {
+    public ItemWrapper get_item6() {
         return item6;
     }
 
-    public void set_item6(int item6) {
+    public void set_item6(ItemWrapper item6) {
         this.item6 = item6;
     }
 
